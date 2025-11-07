@@ -31,7 +31,7 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="relative h-[520px] -ml-8 overflow-hidden">
+            <div className="relative h-[300px] md:h-[520px] md:-ml-8 overflow-hidden">
               <Image
                 src="/plz1.png"
                 alt="Senior care"
@@ -47,7 +47,7 @@ export default function Home() {
 
 
       {/* Value cards */}
-      <section className="-mt-32">
+      <section className="mt-8 md:-mt-32">
         <div className="max-w-screen-xl mx-auto px-4 relative z-20">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
