@@ -8,7 +8,7 @@ export default function Home() {
       <section className="bg-gradient-to-b from-blue-50 to-white">
         <div className="max-w-screen-xl mx-auto px-4 py-16 md:py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="relative z-20">
+            <div className="relative z-20 order-3 md:order-1">
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
                 Find the right senior care<br />in Michigan.
               </h1>
@@ -31,7 +31,7 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="relative h-[300px] md:h-[520px] md:-ml-8 overflow-hidden">
+            <div className="relative h-[300px] md:h-[520px] md:-ml-8 overflow-hidden order-1 md:order-2">
               <Image
                 src="/plz1.png"
                 alt="Senior care"
@@ -41,13 +41,31 @@ export default function Home() {
                 priority
               />
             </div>
+
+            {/* Value cards - mobile only, shown right after image */}
+            <div className="order-2 md:hidden col-span-1 mt-6">
+              <div className="grid grid-cols-1 gap-6">
+                <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+                  <h3 className="text-xl font-semibold tracking-tight text-gray-900">Personal guidance</h3>
+                  <p className="mt-2 text-lg text-gray-600">A dedicated local advisor who listens and supports your family through each step.</p>
+                </div>
+                <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+                  <h3 className="text-xl font-semibold tracking-tight text-gray-900">Vetted communities</h3>
+                  <p className="mt-2 text-lg text-gray-600">We research options and share the pros, cons, pricing, and availability.</p>
+                </div>
+                <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+                  <h3 className="text-xl font-semibold tracking-tight text-gray-900">Fast results</h3>
+                  <p className="mt-2 text-lg text-gray-600">Get tailored matches quickly—so you can make confident decisions sooner.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
 
-      {/* Value cards */}
-      <section className="mt-8 md:-mt-32">
+      {/* Value cards - desktop version */}
+      <section className="mt-8 md:-mt-32 hidden md:block">
         <div className="max-w-screen-xl mx-auto px-4 relative z-20">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -110,7 +128,7 @@ export default function Home() {
       {/* Slim contact bar at bottom */}
       <section className="bg-blue-50">
         <div className="max-w-screen-xl mx-auto px-4 py-3 text-center text-sm md:text-base text-blue-900">
-          Talk to a local advisor today: <a className="underline underline-offset-4" href="tel:2489964637">(248) 996-4637</a> • <a className="underline underline-offset-4" href="mailto:pitusammy@gmail.com">pitusammy@gmail.com</a> • 8am–7pm
+          Talk to a local advisor today: <a className="underline underline-offset-4" href="tel:2489964637">(248) 996-4637</a> • <a className="underline underline-offset-4" href="mailto:homewardseniors@gmail.com">homewardseniors@gmail.com</a> • 8am–7pm
         </div>
       </section>
     </div>

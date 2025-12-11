@@ -40,7 +40,6 @@ export default function Contact() {
           </p>
           <p className="text-lg text-gray-600 mb-8">
             We've received your message and will get back to you within 24 hours.
-            If you have an urgent need, please call us at 248-996-4637.
           </p>
           <button
             onClick={() => {
@@ -99,7 +98,7 @@ export default function Contact() {
                 onChange={handleChange}
                 required
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="pitusammy@gmail.com"
+                placeholder=""
               />
             </div>
 
@@ -114,7 +113,7 @@ export default function Contact() {
                 value={formData.phone}
                 onChange={handleChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="248-996-4637"
+                placeholder=""
               />
             </div>
 
@@ -154,7 +153,7 @@ export default function Contact() {
                 </svg>
                 <div>
                   <p className="font-medium text-gray-900">Phone</p>
-                  <p className="text-gray-600">248-996-4637</p>
+                  <p className="text-gray-600"></p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -163,7 +162,7 @@ export default function Contact() {
                 </svg>
                 <div>
                   <p className="font-medium text-gray-900">Email</p>
-                  <p className="text-gray-600">pitusammy@gmail.com</p>
+                  <p className="text-gray-600"></p>
                 </div>
               </div>
               <div className="flex items-start">

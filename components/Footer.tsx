@@ -24,8 +24,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:pitusammy@gmail.com" className="hover:text-white underline-offset-4 hover:underline">
-                  Email: pitusammy@gmail.com
+                <a href="mailto:homewardseniors@gmail.com" className="hover:text-white underline-offset-4 hover:underline">
+                  Email: homewardseniors@gmail.com
                 </a>
               </li>
               <li>Hours: 8am–7pm</li>
