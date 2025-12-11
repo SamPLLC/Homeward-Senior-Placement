@@ -153,7 +153,7 @@ export default function Contact() {
                 </svg>
                 <div>
                   <p className="font-medium text-gray-900">Phone</p>
-                  <p className="text-gray-600"></p>
+                  <p className="text-gray-600">248-996-4637</p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -162,7 +162,7 @@ export default function Contact() {
                 </svg>
                 <div>
                   <p className="font-medium text-gray-900">Email</p>
-                  <p className="text-gray-600"></p>
+                  <p className="text-gray-600">homewardseniors@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-start">
