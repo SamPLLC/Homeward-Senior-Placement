@@ -3,57 +3,42 @@
 import { useState } from 'react';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [status, setStatus] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-    // Clear error when user starts typing
-    if (error) setError('');
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-    setError('');
+    setStatus('');
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('https://formspree.io/f/manrlanz', {
         method: 'POST',
+        body: formData,
         headers: {
-          'Content-Type': 'application/json',
+          Accept: 'application/json',
         },
-        body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        const errorMsg = data.error || 'Failed to send message';
-        const details = data.details ? ` (${data.details})` : '';
-        throw new Error(errorMsg + details);
+      if (response.ok) {
+        setStatus('SUCCESS');
+        form.reset();
+      } else {
+        const data = await response.json();
+        throw new Error(data.error || 'Failed to send message');
       }
-
-      setIsSubmitted(true);
-      setFormData({ name: '', email: '', phone: '', message: '' });
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to send message. Please try again.');
+    } catch (error) {
+      setStatus('ERROR');
+      console.error('Form submission error:', error);
     } finally {
       setIsLoading(false);
     }
   };
 
-  if (isSubmitted) {
+  if (status === 'SUCCESS') {
     return (
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center">
@@ -71,8 +56,7 @@ export default function Contact() {
           </p>
           <button
             onClick={() => {
-              setIsSubmitted(false);
-              setFormData({ name: '', email: '', phone: '', message: '' });
+              setStatus('');
             }}
             className="bg-blue-900 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-800 transition-colors duration-200"
           >
@@ -97,9 +81,9 @@ export default function Contact() {
         {/* Contact Form */}
         <div className="bg-white p-8 rounded-lg shadow-md">
           <h2 className="text-2xl font-semibold text-gray-900 mb-6">Send Us a Message</h2>
-          {error && (
+          {status === 'ERROR' && (
             <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-              <p className="text-red-800 text-sm">{error}</p>
+              <p className="text-red-800 text-sm">Oops! Something went wrong. Please try again.</p>
             </div>
           )}
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -111,8 +95,6 @@ export default function Contact() {
                 type="text"
                 id="name"
                 name="name"
-                value={formData.name}
-                onChange={handleChange}
                 required
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="Your full name"
@@ -127,8 +109,6 @@ export default function Contact() {
                 type="email"
                 id="email"
                 name="email"
-                value={formData.email}
-                onChange={handleChange}
                 required
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder=""
@@ -143,8 +123,6 @@ export default function Contact() {
                 type="tel"
                 id="phone"
                 name="phone"
-                value={formData.phone}
-                onChange={handleChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder=""
               />
@@ -157,8 +135,6 @@ export default function Contact() {
               <textarea
                 id="message"
                 name="message"
-                value={formData.message}
-                onChange={handleChange}
                 required
                 rows={5}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
