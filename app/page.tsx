@@ -128,7 +128,7 @@ export default function Home() {
       {/* Slim contact bar at bottom */}
       <section className="bg-blue-50">
         <div className="max-w-screen-xl mx-auto px-4 py-3 text-center text-sm md:text-base text-blue-900">
-          Talk to a local advisor today: <a className="underline underline-offset-4" href="tel:2489964637">(248) 996-4637</a> • <a className="underline underline-offset-4" href="mailto:homewardseniors@gmail.com">homewardseniors@gmail.com</a> • 8am–7pm
+          Talk to a local advisor today: <a className="underline underline-offset-4" href="tel:2489964637">(248) 996-4637</a> • <a className="underline underline-offset-4" href="mailto:homewardseniors@icloud.com">homewardseniors@icloud.com</a> • 8am–7pm
         </div>
       </section>
     </div>
