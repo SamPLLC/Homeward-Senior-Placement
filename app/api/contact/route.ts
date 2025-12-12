@@ -24,6 +24,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Validate API key format (should start with 're_')
+    if (!apiKey.startsWith('re_')) {
+      console.error('Invalid RESEND_API_KEY format');
+      return NextResponse.json(
+        { error: 'Email service configuration error. Please contact the administrator.' },
+        { status: 500 }
+      );
+    }
+
     // Initialize Resend with API key
     const resend = new Resend(apiKey);
 
@@ -55,8 +64,13 @@ export async function POST(request: NextRequest) {
 
     if (error) {
       console.error('Resend API error:', error);
+      // Return more specific error message for debugging
+      const errorMessage = error.message || 'Unknown error';
       return NextResponse.json(
-        { error: 'Failed to send email. Please try again later.' },
+        { 
+          error: 'Failed to send email. Please try again later.',
+          details: process.env.NODE_ENV === 'development' ? errorMessage : undefined
+        },
         { status: 500 }
       );
     }
@@ -64,8 +78,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: true, id: data?.id }, { status: 200 });
   } catch (error) {
     console.error('Contact form error:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { 
+        error: 'Internal server error',
+        details: process.env.NODE_ENV === 'development' ? errorMessage : undefined
+      },
       { status: 500 }
     );
   }
