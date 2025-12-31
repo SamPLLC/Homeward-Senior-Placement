@@ -12,6 +12,11 @@ const nunito = Nunito({
 export const metadata = {
   title: "Homeward Senior Placement",
   description: "Helping families find the right senior living option",
+  icons: {
+    icon: "/google-pic.png",
+    shortcut: "/google-pic.png",
+    apple: "/google-pic.png",
+  },
   openGraph: {
     title: "Homeward Senior Placement",
     description: "Helping families find the right senior living option",
