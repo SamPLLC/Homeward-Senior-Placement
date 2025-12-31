@@ -12,6 +12,25 @@ const nunito = Nunito({
 export const metadata = {
   title: "Homeward Senior Placement",
   description: "Helping families find the right senior living option",
+  openGraph: {
+    title: "Homeward Senior Placement",
+    description: "Helping families find the right senior living option",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Homeward Senior Placement Logo",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Homeward Senior Placement",
+    description: "Helping families find the right senior living option",
+    images: ["/logo.png"],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
