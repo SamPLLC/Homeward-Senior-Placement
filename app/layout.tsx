@@ -2,8 +2,9 @@ import "./globals.css";
 import Header from "@/components/Header"; // or "../components/Header" if alias "@" isn't set
 import Footer from "@/components/Footer";
 import { Nunito } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
-const nunito = Nunito({ 
+const nunito = Nunito({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
@@ -38,16 +39,19 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body className={nunito.className}>
         <Header />
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
 }
-
-
