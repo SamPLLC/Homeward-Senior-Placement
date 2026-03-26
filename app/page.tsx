@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-gradient-to-b from-blue-50 to-white">
+      <section className="bg-blue-50">
         <div className="max-w-screen-xl mx-auto px-4 py-16 md:py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div className="relative z-20 order-3 md:order-1">
@@ -31,13 +31,13 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="relative h-[300px] md:h-[520px] md:-ml-8 overflow-hidden order-1 md:order-2">
+            <div className="mb-6 md:mb-2 order-1 md:order-2 bg-blue-50">
               <Image
-                src="/homeward new image.jpg"
+                src="/homeward new image.png"
                 alt="Senior care"
-                fill
-                className="object-cover"
-                style={{ objectPosition: '50% 50%', transform: 'scale(1.1)' }}
+                width={1688}
+                height={1126}
+                className="w-full h-auto object-contain"
                 priority
               />
             </div>
@@ -65,7 +65,7 @@ export default function Home() {
 
 
       {/* Value cards - desktop version */}
-      <section className="mt-8 md:-mt-32 hidden md:block">
+      <section className="mt-8 md:-mt-10 md:pt-4 hidden md:block bg-white">
         <div className="max-w-screen-xl mx-auto px-4 relative z-20">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
