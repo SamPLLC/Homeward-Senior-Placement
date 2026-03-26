@@ -33,7 +33,7 @@ export default function Home() {
             
             <div className="relative h-[300px] md:h-[520px] md:-ml-8 overflow-hidden order-1 md:order-2">
               <Image
-                src="/plz1.png"
+                src="/homeward new image.jpg"
                 alt="Senior care"
                 fill
                 className="object-cover"
