@@ -3,37 +3,38 @@ import { Resend } from 'resend';
 
 const CONTACT_EMAIL = 'homewardseniors@gmail.com';
 
-async function sendWithFormSubmit({
+async function sendWithWeb3Forms({
   name,
   email,
   phone,
   message,
+  accessKey,
 }: {
   name: string;
   email: string;
   phone: string;
   message: string;
+  accessKey: string;
 }) {
-  const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
+  const response = await fetch('https://api.web3forms.com/submit', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
     },
     body: JSON.stringify({
+      access_key: accessKey,
       name,
       email,
       phone: phone || 'Not provided',
       message,
-      _subject: `New Homeward contact from ${name}`,
-      _template: 'table',
-      _captcha: 'false',
+      subject: `New Homeward contact from ${name}`,
     }),
   });
 
   const data = await response.json().catch(() => ({}));
 
-  if (!response.ok || data.success === 'false' || data.success === false) {
+  if (!response.ok || !data.success) {
     throw new Error(data.message || 'Failed to send message');
   }
 
@@ -102,16 +103,23 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const apiKey = process.env.RESEND_API_KEY;
-    const useResend = Boolean(apiKey && apiKey.startsWith('re_'));
+    const resendKey = process.env.RESEND_API_KEY;
+    const web3formsKey = process.env.WEB3FORMS_ACCESS_KEY;
 
-    if (useResend) {
-      const data = await sendWithResend({ name, email, phone, message, apiKey: apiKey! });
+    if (resendKey?.startsWith('re_')) {
+      const data = await sendWithResend({ name, email, phone, message, apiKey: resendKey });
       return NextResponse.json({ success: true, provider: 'resend', id: data?.id }, { status: 200 });
     }
 
-    await sendWithFormSubmit({ name, email, phone, message });
-    return NextResponse.json({ success: true, provider: 'formsubmit' }, { status: 200 });
+    if (web3formsKey) {
+      const data = await sendWithWeb3Forms({ name, email, phone, message, accessKey: web3formsKey });
+      return NextResponse.json({ success: true, provider: 'web3forms', id: data?.message }, { status: 200 });
+    }
+
+    return NextResponse.json(
+      { error: 'Email service is not configured on the server.' },
+      { status: 503 }
+    );
   } catch (error) {
     console.error('Contact form error:', error);
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';

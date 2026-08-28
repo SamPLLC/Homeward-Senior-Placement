@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 
+const CONTACT_EMAIL = 'homewardseniors@gmail.com';
+
 export default function Contact() {
   const [status, setStatus] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -13,29 +15,39 @@ export default function Contact() {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
+    const name = String(formData.get('name') || '').trim();
+    const email = String(formData.get('email') || '').trim();
+    const phone = String(formData.get('phone') || '').trim();
+    const message = String(formData.get('message') || '').trim();
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
         body: JSON.stringify({
-          name: formData.get('name'),
-          email: formData.get('email'),
-          phone: formData.get('phone') || '',
-          message: formData.get('message'),
+          name,
+          email,
+          phone: phone || 'Not provided',
+          message,
+          _subject: `New Homeward contact from ${name}`,
+          _template: 'table',
+          _captcha: 'false',
         }),
       });
 
       const data = await response.json();
 
-      if (response.ok) {
+      if (data.success === 'true' || data.success === true) {
         setStatus('SUCCESS');
         form.reset();
+      } else if (String(data.message || '').toLowerCase().includes('activation')) {
+        setStatus('ACTIVATION');
+        form.reset();
       } else {
-        throw new Error(data.error || 'Failed to send message');
+        throw new Error(data.message || 'Failed to send message');
       }
     } catch (error) {
       setStatus('ERROR');
@@ -44,6 +56,34 @@ export default function Contact() {
       setIsLoading(false);
     }
   };
+
+  if (status === 'ACTIVATION') {
+    return (
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="text-center">
+          <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg className="w-8 h-8 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Check Your Email</h1>
+          <p className="text-xl text-gray-600 mb-4">
+            We sent a one-time activation link to <strong>{CONTACT_EMAIL}</strong>.
+          </p>
+          <p className="text-lg text-gray-600 mb-8">
+            Open that email from FormSubmit, click <strong>Activate Form</strong>, then come back and send another test message.
+            Also check your spam folder.
+          </p>
+          <button
+            onClick={() => setStatus('')}
+            className="bg-blue-900 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-800 transition-colors duration-200"
+          >
+            Back to Contact Form
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   if (status === 'SUCCESS') {
     return (
