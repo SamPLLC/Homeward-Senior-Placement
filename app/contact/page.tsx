@@ -15,19 +15,26 @@ export default function Contact() {
     const formData = new FormData(form);
 
     try {
-      const response = await fetch('https://formspree.io/f/manrlanz', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
-        body: formData,
         headers: {
+          'Content-Type': 'application/json',
           Accept: 'application/json',
         },
+        body: JSON.stringify({
+          name: formData.get('name'),
+          email: formData.get('email'),
+          phone: formData.get('phone') || '',
+          message: formData.get('message'),
+        }),
       });
+
+      const data = await response.json();
 
       if (response.ok) {
         setStatus('SUCCESS');
         form.reset();
       } else {
-        const data = await response.json();
         throw new Error(data.error || 'Failed to send message');
       }
     } catch (error) {

@@ -1,6 +1,10 @@
 # Email Setup Instructions
 
-The contact form is now configured to send emails using Resend. Follow these steps to enable it:
+The contact form sends submissions to `homewardseniors@gmail.com`.
+
+By default it uses **FormSubmit** (no extra setup on Vercel). The first time someone submits the form, FormSubmit will email you a one-time activation link — click it to start receiving messages.
+
+For a more professional setup later, you can switch to **Resend**:
 
 ## 1. Get a Resend API Key
 
