@@ -33,6 +33,6 @@ For production use, you'll want to verify your domain in Resend to send from you
 
 ## Testing
 
-Once set up, test the contact form and you should receive emails at `homewardseniors@icloud.com`.
+Once set up, test the contact form and you should receive emails at `homewardseniors@gmail.com`.
 
 

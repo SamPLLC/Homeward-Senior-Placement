@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
     // Send email using Resend
     const { data, error } = await resend.emails.send({
       from: 'Homeward Senior Placement <onboarding@resend.dev>',
-      to: ['homewardseniors@icloud.com'],
+      to: ['homewardseniors@gmail.com'],
       replyTo: email,
       subject: `New Contact Form Submission from ${name}`,
       html: `

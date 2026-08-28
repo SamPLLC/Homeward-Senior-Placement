@@ -39,8 +39,8 @@ export default function PrivacyPage() {
             <h2 className="text-xl font-semibold text-gray-900">Contact</h2>
             <p className="mt-2">
               Questions about privacy can be sent to{" "}
-              <a className="underline underline-offset-4" href="mailto:homewardseniors@icloud.com">
-                homewardseniors@icloud.com
+              <a className="underline underline-offset-4" href="mailto:homewardseniors@gmail.com">
+                homewardseniors@gmail.com
               </a>
               .
             </p>
