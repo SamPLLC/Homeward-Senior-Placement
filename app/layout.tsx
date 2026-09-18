@@ -40,8 +40,8 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={nunito.className}>
+    <html lang="en" style={{ colorScheme: "light" }}>
+      <body className={`${nunito.className} bg-white text-gray-900`}>
         <Header />
         {children}
         <Footer />
