@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 export default function About() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -51,27 +49,6 @@ export default function About() {
                 We're here for you throughout the entire process and beyond.
               </p>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="mb-16">
-        <h2 className="text-3xl font-semibold text-gray-900 text-center mb-8">Meet the Founder</h2>
-        <div className="max-w-2xl mx-auto">
-          <div className="text-center">
-            <div className="relative w-40 h-40 rounded-full mx-auto mb-6 overflow-hidden">
-              <Image
-                src="/face photo.jpg"
-                alt="Sam Pitu"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <h3 className="text-2xl font-semibold text-gray-900 mb-2">Sam Pitu</h3>
-            <p className="text-blue-900 font-medium mb-4 text-lg">Founder & Senior Placement Advisor</p>
-            <p className="text-gray-600 text-lg leading-relaxed">
-              Sam personally works with every family to understand their needs and guide them toward the best senior living options. With hands-on experience in the senior care industry and strong relationships with trusted communities, Sam ensures every placement is made with care, transparency, and compassion.
-            </p>
           </div>
         </div>
       </div>
