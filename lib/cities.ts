@@ -73,7 +73,7 @@ export const cities: City[] = [
     name: 'West Bloomfield',
     slug: 'west-bloomfield',
     county: 'Oakland County',
-    nearby: ['farmington-hills', 'novi', 'southfield', 'royal-oak'],
+    nearby: ['bloomfield-hills', 'bloomfield-township', 'farmington-hills', 'novi'],
     intro:
       'West Bloomfield families often look for senior care that balances privacy, cultural fit, and higher levels of support. We compare assisted living, memory care, and home care around the lakes and throughout western Oakland County.',
     details:
@@ -81,7 +81,37 @@ export const cities: City[] = [
     notes: [
       'Many families want a close match on culture, language, and daily routine',
       'Memory care demand can be high; we check waitlists and respite options',
-      'Nearby Farmington Hills and Novi expand the list when timing is tight',
+      'Nearby Bloomfield Hills, Bloomfield Township, Farmington Hills, and Novi expand the list when timing is tight',
+    ],
+  },
+  {
+    name: 'Bloomfield Hills',
+    slug: 'bloomfield-hills',
+    county: 'Oakland County',
+    nearby: ['bloomfield-township', 'west-bloomfield', 'troy', 'royal-oak'],
+    intro:
+      'Bloomfield Hills families often want senior care that stays close to home, Woodward, and relatives in Birmingham, Troy, and West Bloomfield. We compare assisted living, memory care, and home care in Bloomfield Hills and the surrounding Oakland County communities.',
+    details:
+      'This is a smaller city, so the right fit may be in Bloomfield Hills itself or a few minutes away in Bloomfield Township, Birmingham, or Troy. We help you compare care level, privacy, and monthly cost before you tour, so you are not starting with a long, unmatched list.',
+    notes: [
+      'A strong match when family wants to stay near Cranbrook, Woodward, and local churches',
+      'Bloomfield Township, West Bloomfield, and Troy add more assisted living and memory care options nearby',
+      'We check waitlists and what daily care actually includes before you visit',
+    ],
+  },
+  {
+    name: 'Bloomfield Township',
+    slug: 'bloomfield-township',
+    county: 'Oakland County',
+    nearby: ['bloomfield-hills', 'west-bloomfield', 'troy', 'farmington-hills'],
+    intro:
+      'Bloomfield Township families often search for senior care that stays in Oakland County, close to Telegraph, Square Lake, and nearby Bloomfield Hills. We help you compare assisted living, memory care, and home care in Bloomfield Township and the communities around it.',
+    details:
+      'Township searches can mix Bloomfield Hills, West Bloomfield, Birmingham, and Troy results. We sort that out with a short conversation about needs, budget, and how far family can travel, then set up tours only at places that can actually take your loved one.',
+    notes: [
+      'Useful when you want to stay close to Bloomfield Hills without limiting yourself to one city',
+      'West Bloomfield and Troy are close if memory care availability is tight locally',
+      'We compare in-home support and community living so a move happens only if it is the right next step',
     ],
   },
   {
@@ -118,7 +148,7 @@ export const cities: City[] = [
     name: 'Troy',
     slug: 'troy',
     county: 'Oakland County',
-    nearby: ['royal-oak', 'rochester-hills', 'sterling-heights', 'southfield'],
+    nearby: ['bloomfield-hills', 'royal-oak', 'rochester-hills', 'southfield'],
     intro:
       'Troy is a hub for Oakland County families searching for assisted living and memory care close to work, Big Beaver, and nearby Royal Oak or Rochester Hills. We compare local communities and home care so you can stay close without guessing.',
     details:
