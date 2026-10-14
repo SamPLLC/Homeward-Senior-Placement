@@ -70,7 +70,7 @@ const faqs = [
   {
     question: 'Which cities in Michigan do you serve?',
     answer:
-      'We help families across Southeast Michigan, including Farmington Hills, Northville, Plymouth, Livonia, West Bloomfield, Bloomfield Hills, Bloomfield Township, Novi, Ann Arbor, Troy, Sterling Heights, Rochester Hills, Canton, Southfield, and Royal Oak.',
+      'We help families across Southeast Michigan, including Farmington Hills, Northville, Plymouth, Livonia, West Bloomfield, Bloomfield Hills, Bloomfield Township, Novi, Ann Arbor, Troy, Sterling Heights, Rochester Hills, Canton, and Royal Oak.',
   },
   {
     question: 'Do you work for one community, or compare several?',

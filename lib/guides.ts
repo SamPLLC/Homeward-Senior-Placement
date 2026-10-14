@@ -228,7 +228,7 @@ export const guides: Guide[] = [
         heading: 'Home care, a relative’s house, or a community',
         paragraphs: [
           'In-home help can buy time if the house is still safe and someone can supervise the helpers. Moving in with a child can work for some families and strain others quickly. Assisted living, memory care, or a licensed residential care home becomes the better path when nights, wandering, or caregiver injury are already in the picture.',
-          'Location matters. A parent in Waterford and children in Troy need a different map than a family entirely in Canton. We start with where people actually live, then compare communities in those cities.',
+          'Location matters. A parent in White Lake and children in Troy need a different map than a family entirely in Canton. We start with where people actually live, then compare communities in those cities.',
         ],
       },
       {

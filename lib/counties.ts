@@ -15,9 +15,9 @@ export const counties: County[] = [
     name: 'Oakland County',
     slug: 'oakland-county',
     intro:
-      'Oakland County is the center of most Southeast Michigan senior-living searches we see—Farmington Hills, Novi, Troy, Royal Oak, Bloomfield, Rochester Hills, and the lakes townships west of Pontiac. Families here usually want a short drive for visits and a clear comparison of assisted living versus memory care.',
+      'Oakland County is the center of most Southeast Michigan senior-living searches we see—Farmington Hills, Novi, Troy, Royal Oak, Bloomfield, Rochester Hills, and the lakes townships in western Oakland. Families here usually want a short drive for visits and a clear comparison of assisted living versus memory care.',
     details:
-      'The county is not one market. Woodward-adjacent cities such as Royal Oak and Birmingham behave differently from I-96 communities like Novi and Wixom, and the lakes townships (West Bloomfield, Commerce, White Lake, Waterford) are different again. We help you compare communities by care, cost, and which side of the county your family can actually visit after work.',
+      'The county is not one market. Woodward-adjacent cities such as Royal Oak and Birmingham behave differently from I-96 communities like Novi and Wixom, and the lakes townships (West Bloomfield, Commerce, White Lake) are different again. We help you compare communities by care, cost, and which side of the county your family can actually visit after work.',
     notes: [
       'The largest concentration of assisted living and memory care we work with in Metro Detroit',
       'Beaumont (Corewell Health) Royal Oak, Troy, and Farmington Hills sit inside this county',
@@ -34,22 +34,18 @@ export const counties: County[] = [
       'troy',
       'rochester-hills',
       'rochester',
-      'southfield',
       'royal-oak',
       'birmingham',
       'auburn-hills',
-      'waterford',
       'commerce-township',
       'white-lake',
       'walled-lake',
       'wixom',
       'south-lyon',
-      'milford',
       'madison-heights',
       'ferndale',
       'berkley',
       'oak-park',
-      'pontiac',
       'northville',
     ],
   },
@@ -57,13 +53,13 @@ export const counties: County[] = [
     name: 'Wayne County',
     slug: 'wayne-county',
     intro:
-      'Wayne County senior-living searches usually start in Livonia, Plymouth, Canton, Northville, Westland, Dearborn, or Dearborn Heights. Families want to stay west of Detroit or in Dearborn, keep doctors they already use, and understand the real monthly cost before they tour.',
+      'Wayne County senior-living searches usually start in Livonia, Plymouth, Canton, or Northville. Families want to stay west of Detroit, keep doctors they already use, and understand the real monthly cost before they tour.',
     details:
-      'Western Wayne (Plymouth, Northville, Livonia, Canton) and downriver-adjacent Dearborn are not interchangeable. Medical access at Trinity Health Livonia and Corewell Health Dearborn, plus visit patterns along I-96, I-275, and Michigan Avenue, change which communities make sense. We compare assisted living, memory care, and licensed adult foster care across those sub-markets so you are not mixing unrelated listings.',
+      'Western Wayne communities such as Plymouth, Northville, Livonia, and Canton are not interchangeable. Medical access at Trinity Health Livonia, plus visit patterns along I-96 and I-275, change which communities make sense. We compare assisted living, memory care, and licensed adult foster care across those sub-markets so you are not mixing unrelated listings.',
     notes: [
       'Strong inventory of assisted living, memory care, and smaller licensed homes',
-      'Trinity Health Livonia and Corewell Health Dearborn are common discharge starting points',
-      'Canton, Westland, and Garden City often help when Plymouth or Northville pricing is too high',
+      'Trinity Health Livonia is a common discharge starting point for western Wayne families',
+      'Canton and Livonia often help when Plymouth or Northville pricing is too high',
     ],
     hospitals: 'Trinity Health Livonia, Corewell Health Dearborn, and nearby Trinity Health Ann Arbor',
     citySlugs: [
@@ -71,10 +67,6 @@ export const counties: County[] = [
       'plymouth',
       'northville',
       'canton',
-      'westland',
-      'garden-city',
-      'dearborn',
-      'dearborn-heights',
     ],
   },
   {
@@ -113,11 +105,11 @@ export const counties: County[] = [
     intro:
       'Livingston County families typically want senior care in Brighton or Howell so they can stay in the county rather than moving into Novi or Ann Arbor. Downtown visits, I-96 access, and Trinity Health Livingston are the usual anchors.',
     details:
-      'Livingston has fewer campuses than Oakland County, which means we often compare Brighton and Howell against South Lyon, Milford, or Ann Arbor when a specific memory care program or faster opening is needed. We are direct about drive time for adult children who still work in Oakland or Wayne County.',
+      'Livingston has fewer campuses than Oakland County, which means we often compare Brighton and Howell against South Lyon, Novi, or Ann Arbor when a specific memory care program or faster opening is needed. We are direct about drive time for adult children who still work in Oakland or Wayne County.',
     notes: [
       'The right county when the family is rooted in Brighton or Howell, not Metro Detroit',
       'Trinity Health Livingston is the local hospital most discharge plans start from',
-      'South Lyon, Milford, and Ann Arbor are the usual overflow markets if local care is not the right level',
+      'South Lyon, Novi, and Ann Arbor are the usual overflow markets if local care is not the right level',
     ],
     hospitals: 'Trinity Health Livingston in Howell and St. Joseph Mercy Brighton',
     citySlugs: ['brighton', 'howell'],

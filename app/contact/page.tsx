@@ -20,6 +20,12 @@ export default function Contact() {
     const phone = String(formData.get('phone') || '').trim();
     const message = String(formData.get('message') || '').trim();
 
+    if (!name || !phone || !message) {
+      setStatus('ERROR');
+      setIsLoading(false);
+      return;
+    }
+
     try {
       const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
         method: 'POST',
@@ -29,8 +35,8 @@ export default function Contact() {
         },
         body: JSON.stringify({
           name,
-          email,
-          phone: phone || 'Not provided',
+          email: email || 'not-provided@homewardseniors.com',
+          phone,
           message,
           _subject: `New Homeward contact from ${name}`,
           _template: 'table',
@@ -149,27 +155,29 @@ export default function Contact() {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                Email Address *
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                Phone Number *
               </label>
               <input
-                type="email"
-                id="email"
-                name="email"
+                type="tel"
+                id="phone"
+                name="phone"
                 required
+                autoComplete="tel"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder=""
               />
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                Phone Number
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                Email Address
               </label>
               <input
-                type="tel"
-                id="phone"
-                name="phone"
+                type="email"
+                id="email"
+                name="email"
+                autoComplete="email"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder=""
               />
