@@ -73,16 +73,16 @@ export const counties: County[] = [
     name: 'Macomb County',
     slug: 'macomb-county',
     intro:
-      'Macomb County families often search for senior care that stays on the east side—Sterling Heights, Warren, Clinton Township, Utica, and Shelby Township. Cost, Hall Road access, and remaining close to adult children who already live in Macomb are the usual drivers.',
+      'Macomb County families often search for senior care that stays on the east side—Sterling Heights, Clinton Township, and Shelby Township. Cost, Hall Road access, and remaining close to adult children who already live in Macomb are the usual drivers.',
     details:
-      'Macomb has a wide spread of prices and building types, from newer Hall Road campuses in Shelby Township to more affordable licensed homes in Warren. Henry Ford Macomb discharges create time-sensitive searches in Clinton Township. We sort those options by care level first so a lower rate is not missing memory support or medication management.',
+      'Macomb has a wide spread of prices and building types, from newer Hall Road campuses in Shelby Township to mid-priced assisted living in Sterling Heights. Henry Ford Macomb discharges create time-sensitive searches in Clinton Township. We sort those options by care level first so a lower rate is not missing memory support or medication management.',
     notes: [
       'A practical county when staying east of I-75 is important for family visits',
       'Henry Ford Macomb in Clinton Township is a frequent hospital-to-community starting point',
-      'Utica, Shelby Township, and Sterling Heights hold much of the newer assisted living inventory',
+      'Shelby Township and Sterling Heights hold much of the newer assisted living inventory',
     ],
     hospitals: 'Henry Ford Macomb in Clinton Township and Ascension Macomb-Oakland in Warren',
-    citySlugs: ['sterling-heights', 'warren', 'utica', 'shelby-township', 'clinton-township'],
+    citySlugs: ['sterling-heights', 'shelby-township', 'clinton-township'],
   },
   {
     name: 'Washtenaw County',

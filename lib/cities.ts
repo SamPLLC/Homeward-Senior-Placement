@@ -197,9 +197,9 @@ export const cities: City[] = [
     slug: 'sterling-heights',
     county: 'Macomb County',
     countySlug: 'macomb-county',
-    nearby: ['troy', 'utica', 'warren', 'clinton-township'],
+    nearby: ['troy', 'shelby-township', 'clinton-township', 'rochester'],
     intro:
-      'Sterling Heights is one of Macomb County’s largest cities, and families here often want senior care that stays affordable and close to relatives. We compare assisted living, memory care, and residential care throughout Sterling Heights and nearby Troy and Utica.',
+      'Sterling Heights is one of Macomb County’s largest cities, and families here often want senior care that stays affordable and close to relatives. We compare assisted living, memory care, and residential care throughout Sterling Heights and nearby Troy and Clinton Township.',
     details:
       'Search results can mix very different care levels and price points. We sort that out with a short conversation about needs and budget, then show you communities that actually have availability.',
     notes: [
@@ -215,7 +215,7 @@ export const cities: City[] = [
     slug: 'rochester-hills',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['rochester', 'troy', 'auburn-hills', 'utica'],
+    nearby: ['rochester', 'troy', 'auburn-hills', 'shelby-township'],
     intro:
       'Rochester Hills families often look for senior living close to downtown Rochester, local parks, and adult children in northern Oakland County. We help compare assisted living, memory care, and residential care in Rochester Hills and nearby Rochester.',
     details:
@@ -223,7 +223,7 @@ export const cities: City[] = [
     notes: [
       'Popular when family wants to stay near Rochester’s downtown and churches',
       'Memory care and higher-acuity support can be compared alongside assisted living',
-      'Troy and Utica are close if timing or budget requires a wider search',
+      'Troy and Shelby Township are close if timing or budget requires a wider search',
     ],
     hospitals: 'Corewell Health (Crittenton) in Rochester and Corewell Health Troy Hospital',
     setting: 'Parks, Rochester Road, and downtown Rochester visits are often part of what “staying local” means here.',
@@ -287,7 +287,7 @@ export const cities: City[] = [
     slug: 'rochester',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['rochester-hills', 'auburn-hills', 'troy', 'utica'],
+    nearby: ['rochester-hills', 'auburn-hills', 'troy', 'shelby-township'],
     intro:
       'Rochester families often look for senior care within a short drive of downtown, local churches, and relatives in Rochester Hills. We compare assisted living, memory care, and licensed residential care around Rochester and northern Oakland County.',
     details:
@@ -449,18 +449,18 @@ export const cities: City[] = [
     slug: 'madison-heights',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['royal-oak', 'troy', 'warren', 'ferndale'],
+    nearby: ['royal-oak', 'troy', 'sterling-heights', 'ferndale'],
     intro:
-      'Madison Heights families often want senior care along I-75 and 13 Mile that stays close to Royal Oak, Troy, and relatives in Warren. We compare assisted living, memory care, and residential care in Madison Heights and the first ring of Oakland and Macomb cities.',
+      'Madison Heights families often want senior care along I-75 and 13 Mile that stays close to Royal Oak, Troy, and relatives in Sterling Heights. We compare assisted living, memory care, and residential care in Madison Heights and the first ring of Oakland and Macomb cities.',
     details:
-      'The city is geographically small and densely built, so the right community may sit in Troy, Royal Oak, or Warren. We treat Madison Heights as the home base for visits and then compare neighboring inventory on care and cost.',
+      'The city is geographically small and densely built, so the right community may sit in Troy, Royal Oak, or Sterling Heights. We treat Madison Heights as the home base for visits and then compare neighboring inventory on care and cost.',
     notes: [
       'A practical search for families living along John R, 13 Mile, and I-75',
       'Troy and Royal Oak add more assisted living and memory care campuses',
-      'Warren can add more affordable licensed homes if budget is the constraint',
+      'Sterling Heights can add more Macomb County options if budget is the constraint',
     ],
     hospitals: 'Beaumont (Corewell Health) Royal Oak and Ascension Macomb-Oakland',
-    setting: 'I-75 and 13 Mile put Madison Heights between Royal Oak medical access and Warren’s broader inventory.',
+    setting: 'I-75 and 13 Mile put Madison Heights between Royal Oak medical access and Sterling Heights inventory.',
   },
   {
     name: 'Ferndale',
@@ -517,54 +517,18 @@ export const cities: City[] = [
     setting: 'Coolidge and 10 Mile put Oak Park between western Oakland campuses and the Woodward-adjacent cities.',
   },
   {
-    name: 'Warren',
-    slug: 'warren',
-    county: 'Macomb County',
-    countySlug: 'macomb-county',
-    nearby: ['sterling-heights', 'madison-heights', 'clinton-township', 'troy'],
-    intro:
-      'Warren is Macomb County’s largest city, and families here often want senior care that stays close to 12 Mile, Van Dyke, and relatives across the east side. We compare assisted living, memory care, and adult foster care homes in Warren and nearby Sterling Heights.',
-    details:
-      'Warren’s size means a lot of listings and a lot of mismatch. We filter by care level and budget first, then by which side of the city family can actually visit after work—north toward Sterling Heights or west toward Madison Heights.',
-    notes: [
-      'A high-volume search when staying in Macomb County is non-negotiable',
-      'Sterling Heights and Madison Heights add more assisted living and memory care campuses',
-      'We confirm licenses and included care, especially in smaller residential homes',
-    ],
-    hospitals: 'Ascension Macomb-Oakland Hospital in Warren and Henry Ford Macomb nearby',
-    setting: '12 Mile, Van Dyke, and a vast residential grid make Warren a market you have to narrow, not browse.',
-  },
-  {
-    name: 'Utica',
-    slug: 'utica',
-    county: 'Macomb County',
-    countySlug: 'macomb-county',
-    nearby: ['shelby-township', 'sterling-heights', 'rochester', 'clinton-township'],
-    intro:
-      'Utica families often want senior living close to Hall Road, downtown Utica, and relatives in Shelby Township or Sterling Heights. We compare assisted living, memory care, and residential care in Utica and northern Macomb County.',
-    details:
-      'Utica is small; Shelby Township and Sterling Heights usually supply the next openings. We keep downtown Utica and Hall Road as the visit center, then compare which nearby community has the right staffing and a monthly cost the family can carry.',
-    notes: [
-      'Good when family already shops and worships around Utica and Hall Road',
-      'Shelby Township typically adds the widest set of newer campuses',
-      'Rochester is close if Oakland County memory care is a better clinical match',
-    ],
-    hospitals: 'Henry Ford Macomb and Corewell Health (Crittenton) in Rochester',
-    setting: 'Hall Road and a small downtown make Utica the front door to Shelby Township inventory.',
-  },
-  {
     name: 'Shelby Township',
     slug: 'shelby-township',
     county: 'Macomb County',
     countySlug: 'macomb-county',
-    nearby: ['utica', 'sterling-heights', 'clinton-township', 'rochester'],
+    nearby: ['sterling-heights', 'clinton-township', 'rochester', 'rochester-hills'],
     intro:
-      'Shelby Township families often search for senior care along Hall Road and 26 Mile, close to Utica, Sterling Heights, and relatives in Rochester. We compare assisted living, memory care, and residential care in Shelby Township and northern Macomb County.',
+      'Shelby Township families often search for senior care along Hall Road and 26 Mile, close to Sterling Heights and relatives in Rochester. We compare assisted living, memory care, and residential care in Shelby Township and northern Macomb County.',
     details:
       'This township has grown quickly and now holds a mix of newer campuses and smaller homes. We compare what is included in the monthly fee, how memory care is staffed, and whether staying in Macomb still meets the medical picture.',
     notes: [
       'One of Macomb County’s most active senior-living search areas',
-      'Utica, Sterling Heights, and Clinton Township complete most short lists',
+      'Sterling Heights and Clinton Township complete most short lists',
       'We compare newer buildings carefully; new does not always mean better staffing',
     ],
     hospitals: 'Henry Ford Macomb and Corewell Health in Rochester',
@@ -575,7 +539,7 @@ export const cities: City[] = [
     slug: 'clinton-township',
     county: 'Macomb County',
     countySlug: 'macomb-county',
-    nearby: ['sterling-heights', 'shelby-township', 'warren', 'utica'],
+    nearby: ['sterling-heights', 'shelby-township', 'rochester', 'troy'],
     intro:
       'Clinton Township families often need senior care close to Henry Ford Macomb, Groesbeck, and relatives across central Macomb County. We compare assisted living, memory care, and licensed residential care in Clinton Township, Sterling Heights, and Mount Clemens.',
     details:
