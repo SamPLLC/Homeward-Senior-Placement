@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
-import { cities, cityPath } from '@/lib/cities';
 import { services, servicePath } from '@/lib/services';
 import { counties, countyPath } from '@/lib/counties';
 import { guides, guidePath } from '@/lib/guides';
@@ -228,21 +227,10 @@ export default function Home() {
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">Areas we serve</h2>
             <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-              Local guidance for families across Southeast Michigan. Choose a city to see how we help there.
+              Local guidance for families across Southeast Michigan. Choose a county to see the cities and care types we cover there.
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-3">
-            {cities.map((city) => (
-              <Link
-                key={city.slug}
-                href={cityPath(city.slug)}
-                className="inline-flex items-center rounded-full border border-gray-300 px-4 py-2 text-gray-800 bg-white hover:border-blue-900 hover:text-blue-900"
-              >
-                {city.name}
-              </Link>
-            ))}
-          </div>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
             {counties.map((county) => (
               <Link
                 key={county.slug}
