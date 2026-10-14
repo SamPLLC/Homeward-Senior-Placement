@@ -3,7 +3,8 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 import { services, servicePath } from '@/lib/services';
 import { counties, countyPath } from '@/lib/counties';
-import { guides, guidePath } from '@/lib/guides';
+import { featuredGuideSlugs, getGuideBySlug, guidePath } from '@/lib/guides';
+import { hospitalPath, hospitals } from '@/lib/hospitals';
 
 export const metadata: Metadata = {
   title: 'Free Assisted Living & Memory Care Placement in Southeast Michigan',
@@ -255,13 +256,49 @@ export default function Home() {
       <section className="bg-gray-50">
         <div className="max-w-screen-xl mx-auto px-4 py-16 md:py-20">
           <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">
+              Leaving a Metro Detroit hospital?
+            </h2>
+            <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+              Discharge dates move in days. These pages are written for the hospitals families actually call us from.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {hospitals.map((hospital) => (
+              <Link
+                key={hospital.slug}
+                href={hospitalPath(hospital.slug)}
+                className="rounded-2xl border border-gray-200 bg-white p-6 hover:border-blue-900"
+              >
+                <p className="text-sm font-medium uppercase tracking-wide text-blue-900">{hospital.system}</p>
+                <h3 className="mt-2 text-xl font-semibold tracking-tight text-gray-900">{hospital.shortName}</h3>
+                <p className="mt-2 text-gray-600">{hospital.intro}</p>
+              </Link>
+            ))}
+          </div>
+          <p className="mt-8 text-center">
+            <Link href="/hospitals" className="text-blue-900 font-medium underline underline-offset-4">
+              See all hospital discharge pages
+            </Link>
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="max-w-screen-xl mx-auto px-4 py-16 md:py-20">
+          <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">Guides for families</h2>
             <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-              Answers to the searches families make before they know who to call—cost, memory care, hospital discharge, and how placement works.
+              Answers to the searches families make before they know who to call—cost, licensing, hospital discharge, and how to pay.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {guides.slice(0, 6).map((guide) => (
+            {featuredGuideSlugs.map((slug) => {
+              const guide = getGuideBySlug(slug);
+              if (!guide) {
+                return null;
+              }
+              return (
               <Link
                 key={guide.slug}
                 href={guidePath(guide.slug)}
@@ -270,7 +307,8 @@ export default function Home() {
                 <h3 className="text-xl font-semibold tracking-tight text-gray-900">{guide.title}</h3>
                 <p className="mt-2 text-gray-600">{guide.description}</p>
               </Link>
-            ))}
+              );
+            })}
           </div>
           <p className="mt-8 text-center">
             <Link href="/guides" className="text-blue-900 font-medium underline underline-offset-4">
@@ -280,7 +318,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white">
+      <section className="bg-gray-50">
         <div className="max-w-screen-xl mx-auto px-4 py-16 md:py-20">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">
@@ -314,6 +352,10 @@ export default function Home() {
               , and our{' '}
               <Link href="/guides" className="text-blue-900 underline underline-offset-4">
                 family guides
+              </Link>
+              , and{' '}
+              <Link href="/hospitals" className="text-blue-900 underline underline-offset-4">
+                hospital discharge help
               </Link>
               .
             </p>

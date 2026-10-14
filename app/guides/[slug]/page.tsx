@@ -1,8 +1,18 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { getGuideBySlug, guidePath, guides } from '@/lib/guides';
+import {
+  formatGuideDate,
+  getGuideBySlug,
+  GUIDE_AUTHOR,
+  GUIDE_AUTHOR_ROLE,
+  guidePath,
+  guidePublished,
+  guideUpdated,
+  guides,
+} from '@/lib/guides';
 import { getServiceBySlug, servicePath } from '@/lib/services';
+import { hospitalPath, hospitals } from '@/lib/hospitals';
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -21,11 +31,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: 'Guides' };
   }
   const title = `${guide.title} | Homeward Senior Placement`;
+  const published = guidePublished(guide);
+  const updated = guideUpdated(guide);
   return {
     title,
     description: guide.description,
     alternates: { canonical: guidePath(guide.slug) },
-    openGraph: { title, description: guide.description, url: guidePath(guide.slug), type: 'article' },
+    openGraph: {
+      title,
+      description: guide.description,
+      url: guidePath(guide.slug),
+      type: 'article',
+      publishedTime: published,
+      modifiedTime: updated,
+      authors: [GUIDE_AUTHOR],
+    },
   };
 }
 
@@ -43,13 +63,25 @@ export default async function GuidePage({ params }: PageProps) {
     .map((serviceSlug) => getServiceBySlug(serviceSlug))
     .filter((item): item is NonNullable<typeof item> => Boolean(item));
 
+  const published = guidePublished(guide);
+  const updated = guideUpdated(guide);
+  const showHospitals =
+    guide.slug === 'hospital-discharge-to-assisted-living' || guide.slug === 'after-a-fall-next-48-hours';
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: guide.title,
     description: guide.description,
-    author: { '@type': 'Organization', name: 'Homeward Senior Placement' },
-    publisher: { '@type': 'Organization', name: 'Homeward Senior Placement' },
+    datePublished: published,
+    dateModified: updated,
+    author: {
+      '@type': 'Organization',
+      name: GUIDE_AUTHOR,
+      description: GUIDE_AUTHOR_ROLE,
+    },
+    publisher: { '@type': 'Organization', name: GUIDE_AUTHOR },
+    mainEntityOfPage: `https://homewardseniors.com${guidePath(guide.slug)}`,
   };
 
   return (
@@ -76,6 +108,13 @@ export default async function GuidePage({ params }: PageProps) {
 
       <article className="max-w-3xl">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">{guide.title}</h1>
+        <p className="mt-4 text-sm text-gray-500">
+          By {GUIDE_AUTHOR}
+          <span className="text-gray-400"> · </span>
+          {GUIDE_AUTHOR_ROLE}
+          <span className="text-gray-400"> · </span>
+          Updated {formatGuideDate(updated)}
+        </p>
         <p className="mt-6 text-lg text-gray-600">{guide.intro}</p>
         {guide.sections.map((section) => (
           <section key={section.heading} className="mt-10">
@@ -87,7 +126,48 @@ export default async function GuidePage({ params }: PageProps) {
             ))}
           </section>
         ))}
+        {guide.slug === 'michigan-assisted-living-licensing' && (
+          <p className="mt-8 text-lg text-gray-600">
+            Confirm a current license on the state site:{' '}
+            <a
+              href="https://www.michigan.gov/lara/bureau-list/bchs"
+              className="text-blue-900 underline underline-offset-4"
+              rel="noopener noreferrer"
+            >
+              LARA Bureau of Community and Health Systems
+            </a>
+            , including{' '}
+            <a
+              href="https://www.michigan.gov/lara/bureau-list/bchs/adult"
+              className="text-blue-900 underline underline-offset-4"
+              rel="noopener noreferrer"
+            >
+              adult foster care lookup
+            </a>
+            .
+          </p>
+        )}
       </article>
+
+      {showHospitals && (
+        <div className="mt-12 max-w-3xl">
+          <h2 className="text-2xl font-semibold tracking-tight text-gray-900">Hospital discharge pages</h2>
+          <p className="mt-2 text-gray-600">
+            If your loved one is leaving one of these campuses, start with the local page.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {hospitals.map((hospital) => (
+              <Link
+                key={hospital.slug}
+                href={hospitalPath(hospital.slug)}
+                className="inline-flex items-center rounded-full border border-gray-300 px-4 py-2 text-gray-800 bg-white hover:border-blue-900 hover:text-blue-900"
+              >
+                {hospital.shortName}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
 
       {(relatedServices.length > 0 || relatedGuides.length > 0) && (
         <div className="mt-12 max-w-3xl">
