@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { cities, cityPath } from '@/lib/cities';
+import { cityPath } from '@/lib/cities';
+import { counties, countyCities, countyPath } from '@/lib/counties';
+import { careTypes, countyCarePath } from '@/lib/care-types';
 
 export const metadata: Metadata = {
   title: 'Senior Care Service Areas in Southeast Michigan | Homeward Senior Placement',
   description:
-    'Homeward Senior Placement helps families find assisted living, memory care, and home care in Farmington Hills, Bloomfield Hills, Bloomfield Township, Northville, Plymouth, Livonia, Novi, Ann Arbor, Troy, and more of Southeast Michigan.',
+    'Homeward Senior Placement helps families find assisted living, memory care, and residential care across Oakland, Wayne, Macomb, Washtenaw, and Livingston counties—including Farmington Hills, Novi, Troy, Ann Arbor, Dearborn, and more.',
   alternates: { canonical: '/areas' },
 };
 
@@ -15,23 +17,59 @@ export default function Areas() {
       <div className="text-center mb-10">
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">Service Areas</h1>
         <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-          We help families across Southeast Michigan find the right assisted living, memory care, and home care—fast and locally. Choose a city to learn how we help there.
+          We help families across Southeast Michigan find assisted living, memory care, and residential care. Choose a county or a city to see local pages built for those searches.
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-3">
-        {cities.map((city) => (
+      <div className="flex flex-wrap justify-center gap-3 mb-12">
+        {counties.map((county) => (
           <Link
-            key={city.slug}
-            href={cityPath(city.slug)}
-            className="inline-flex items-center rounded-full border border-gray-300 px-4 py-2 text-gray-800 bg-white hover:border-blue-900 hover:text-blue-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+            key={county.slug}
+            href={countyPath(county.slug)}
+            className="inline-flex items-center rounded-full border border-blue-900 px-4 py-2 text-blue-900 bg-white hover:bg-blue-50"
           >
-            <strong className="mr-1">{city.name}</strong>
+            {county.name}
           </Link>
         ))}
-        <span className="inline-flex items-center rounded-full border border-gray-300 px-4 py-2 text-gray-700 bg-white">
-          and more across SE Michigan
-        </span>
+      </div>
+
+      <div className="space-y-12">
+        {counties.map((county) => {
+          const localCities = countyCities(county);
+          return (
+            <section key={county.slug}>
+              <div className="flex flex-wrap items-baseline justify-between gap-3 mb-4">
+                <h2 className="text-2xl font-semibold tracking-tight text-gray-900">
+                  <Link href={countyPath(county.slug)} className="hover:text-blue-900">
+                    {county.name}
+                  </Link>
+                </h2>
+                <div className="flex flex-wrap gap-2 text-sm">
+                  {careTypes.map((care) => (
+                    <Link
+                      key={care.slug}
+                      href={countyCarePath(county.slug, care.slug)}
+                      className="text-blue-900 underline underline-offset-4"
+                    >
+                      {care.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                {localCities.map((city) => (
+                  <Link
+                    key={`${county.slug}-${city.slug}`}
+                    href={cityPath(city.slug)}
+                    className="inline-flex items-center rounded-full border border-gray-300 px-4 py-2 text-gray-800 bg-white hover:border-blue-900 hover:text-blue-900"
+                  >
+                    {city.name}
+                  </Link>
+                ))}
+              </div>
+            </section>
+          );
+        })}
       </div>
 
       <div className="mt-12 rounded-xl bg-blue-50 p-6 text-center">

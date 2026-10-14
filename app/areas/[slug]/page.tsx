@@ -8,6 +8,8 @@ import {
   cityTitle,
   getCityBySlug,
 } from '@/lib/cities';
+import { careTypes, cityCarePath } from '@/lib/care-types';
+import { countyPath } from '@/lib/counties';
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -109,7 +111,11 @@ export default async function CityPage({ params }: PageProps) {
       </nav>
 
       <div className="max-w-3xl">
-        <p className="text-sm font-medium uppercase tracking-wide text-blue-900">{city.county}</p>
+        <p className="text-sm font-medium uppercase tracking-wide text-blue-900">
+          <Link href={countyPath(city.countySlug)} className="hover:underline underline-offset-4">
+            {city.county}
+          </Link>
+        </p>
         <h1 className="mt-2 text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
           Senior care in {city.name}, Michigan
         </h1>
@@ -125,25 +131,19 @@ export default async function CityPage({ params }: PageProps) {
         ))}
       </div>
 
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-        {[
-          {
-            title: `Assisted living in ${city.name}`,
-            body: `Compare communities that help with meals, medication, and daily routines while keeping as much independence as possible.`,
-          },
-          {
-            title: `Memory care in ${city.name}`,
-            body: `Find secure, structured support for Alzheimer’s and other dementias, with a clear picture of staffing and daily programming.`,
-          },
-          {
-            title: `Home care in ${city.name}`,
-            body: `If a move can wait, we can also help you look at in-home support so your loved one can stay home longer with the right help.`,
-          },
-        ].map((card) => (
-          <div key={card.title} className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-            <h2 className="text-xl font-semibold tracking-tight text-gray-900">{card.title}</h2>
-            <p className="mt-2 text-lg text-gray-600">{card.body}</p>
-          </div>
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+        {careTypes.map((care) => (
+          <Link
+            key={care.slug}
+            href={cityCarePath(city.slug, care.slug)}
+            className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:border-blue-900"
+          >
+            <h2 className="text-xl font-semibold tracking-tight text-gray-900">
+              {care.name} in {city.name}
+            </h2>
+            <p className="mt-2 text-lg text-gray-600">{care.intro(city)}</p>
+            <p className="mt-4 text-blue-900 font-medium">Learn more</p>
+          </Link>
         ))}
       </div>
 
