@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { cities, cityPath } from "@/lib/cities";
+
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
@@ -52,6 +55,13 @@ export default function Footer() {
             <a href="/areas" className="hover:text-gray-300">Areas</a>
             <a href="/about" className="hover:text-gray-300">About</a>
             <a href="/contact" className="hover:text-gray-300">Contact</a>
+          </nav>
+          <nav className="mt-6 flex flex-wrap gap-x-4 gap-y-2" aria-label="Cities we serve">
+            {cities.map((city) => (
+              <Link key={city.slug} href={cityPath(city.slug)} className="hover:text-gray-300">
+                {city.name}
+              </Link>
+            ))}
           </nav>
         </div>
       </div>

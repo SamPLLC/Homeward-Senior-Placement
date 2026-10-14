@@ -10,6 +10,7 @@ const nunito = Nunito({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://homewardseniors.com"),
   title: "Homeward Senior Placement",
   description: "Helping families find the right senior living option",
   icons: {
