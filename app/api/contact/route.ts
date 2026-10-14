@@ -25,8 +25,8 @@ async function sendWithWeb3Forms({
     body: JSON.stringify({
       access_key: accessKey,
       name,
-      email,
-      phone: phone || 'Not provided',
+      email: email || 'not-provided@homewardseniors.com',
+      phone,
       message,
       subject: `New Homeward contact from ${name}`,
     }),
@@ -59,13 +59,13 @@ async function sendWithResend({
   const { data, error } = await resend.emails.send({
     from: 'Homeward Senior Placement <onboarding@resend.dev>',
     to: [CONTACT_EMAIL],
-    replyTo: email,
+    ...(email ? { replyTo: email } : {}),
     subject: `New Contact Form Submission from ${name}`,
     html: `
       <h2>New Contact Form Submission</h2>
       <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+      <p><strong>Email:</strong> ${email || 'Not provided'}</p>
+      <p><strong>Phone:</strong> ${phone}</p>
       <p><strong>Message:</strong></p>
       <p>${message.replace(/\n/g, '<br>')}</p>
     `,
@@ -73,8 +73,8 @@ async function sendWithResend({
       New Contact Form Submission
 
       Name: ${name}
-      Email: ${email}
-      Phone: ${phone || 'Not provided'}
+      Email: ${email || 'Not provided'}
+      Phone: ${phone}
 
       Message:
       ${message}
@@ -96,9 +96,9 @@ export async function POST(request: NextRequest) {
     const phone = String(body.phone || '').trim();
     const message = String(body.message || '').trim();
 
-    if (!name || !email || !message) {
+    if (!name || !phone || !message) {
       return NextResponse.json(
-        { error: 'Name, email, and message are required' },
+        { error: 'Name, phone, and message are required' },
         { status: 400 }
       );
     }

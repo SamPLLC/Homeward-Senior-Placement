@@ -17,7 +17,7 @@ export const cities: City[] = [
     slug: 'farmington-hills',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['west-bloomfield', 'novi', 'livonia', 'southfield'],
+    nearby: ['west-bloomfield', 'novi', 'livonia', 'oak-park'],
     intro:
       'Farmington Hills families often need senior care that stays close to children and grandchildren in Oakland County. We help you compare assisted living, memory care, and residential care options along the 12 Mile, Orchard Lake, and Grand River corridors.',
     details:
@@ -71,14 +71,14 @@ export const cities: City[] = [
     slug: 'livonia',
     county: 'Wayne County',
     countySlug: 'wayne-county',
-    nearby: ['farmington-hills', 'plymouth', 'canton', 'westland'],
+    nearby: ['farmington-hills', 'plymouth', 'canton', 'northville'],
     intro:
       'Livonia is one of the most searched cities in Wayne County for assisted living and memory care. We help families compare communities near I-96, I-275, and Trinity Health Livonia so the next step is local and realistic.',
     details:
       'Because Livonia is large, two buildings a few miles apart can feel very different in price, staffing, and activities. We shortlist places that match your loved one’s care needs, then go with you to ask the questions that are easy to miss on a first tour.',
     notes: [
       'Wide range of assisted living, residential care, and memory care options',
-      'Convenient for families commuting from Farmington Hills, Plymouth, or Dearborn',
+      'Convenient for families commuting from Farmington Hills, Plymouth, or Northville',
       'We check availability quickly so you are not calling communities one by one',
     ],
     hospitals: 'Trinity Health Livonia (St. Mary Mercy)',
@@ -233,36 +233,18 @@ export const cities: City[] = [
     slug: 'canton',
     county: 'Wayne County',
     countySlug: 'wayne-county',
-    nearby: ['plymouth', 'westland', 'livonia', 'ypsilanti'],
+    nearby: ['plymouth', 'northville', 'livonia', 'ypsilanti'],
     intro:
-      'Canton Township families often search for senior care that stays west of Detroit, close to Ford Road, I-275, and relatives in Plymouth or Westland. We compare assisted living, memory care, and residential care in Canton and nearby communities.',
+      'Canton Township families often search for senior care that stays west of Detroit, close to Ford Road, I-275, and relatives in Plymouth or Livonia. We compare assisted living, memory care, and residential care in Canton and nearby communities.',
     details:
       'Canton has grown quickly, and options range from smaller licensed homes to full assisted living. We help you decide whether staying in Canton, moving toward Plymouth, or looking in Livonia is the better fit for care, cost, and family visits.',
     notes: [
       'Convenient for multi-generation families in western Wayne County',
       'A smaller residential care home can be a first look when a large campus feels like too much',
-      'We check availability in Canton, Plymouth, and Westland at the same time',
+      'We check availability in Canton, Plymouth, and Livonia at the same time',
     ],
     hospitals: 'Trinity Health Livonia and Trinity Health Ann Arbor',
-    setting: 'Ford Road and I-275 put Canton between Plymouth’s downtown and Westland’s more affordable inventory.',
-  },
-  {
-    name: 'Southfield',
-    slug: 'southfield',
-    county: 'Oakland County',
-    countySlug: 'oakland-county',
-    nearby: ['oak-park', 'farmington-hills', 'royal-oak', 'berkley'],
-    intro:
-      'Southfield is a practical search for families who want senior care near Telegraph, 10 Mile, and the I-696 corridor. We compare assisted living, memory care, and residential care in Southfield and neighboring Oakland County cities.',
-    details:
-      'Southfield’s mix of established communities and nearby medical offices makes it a strong option when adult children commute from Detroit, Farmington Hills, or Royal Oak. We help you compare buildings on care, staffing, and true monthly cost—not just location.',
-    notes: [
-      'Central for families coming from Detroit, Oak Park, or western Oakland County',
-      'Useful when you need faster placement and multiple communities in a short drive',
-      'We review memory care security and daily programming when that is the priority',
-    ],
-    hospitals: 'Ascension Providence Southfield and nearby Beaumont (Corewell Health) Royal Oak',
-    setting: 'Telegraph, 10 Mile, and I-696 make Southfield a crossroads for families coming from Detroit and the northwest suburbs.',
+    setting: 'Ford Road and I-275 put Canton between Plymouth’s downtown and Livonia’s medical-adjacent inventory.',
   },
   {
     name: 'Royal Oak',
@@ -323,11 +305,11 @@ export const cities: City[] = [
     slug: 'auburn-hills',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['rochester-hills', 'pontiac', 'troy', 'waterford'],
+    nearby: ['rochester-hills', 'bloomfield-township', 'troy', 'rochester'],
     intro:
       'Auburn Hills families often need senior living that stays near I-75, Oakland University, and relatives commuting from Rochester Hills or Troy. We compare assisted living, memory care, and residential care in Auburn Hills and the surrounding north Oakland communities.',
     details:
-      'This market sits between Rochester Hills campuses and Waterford or Pontiac options that can differ sharply in price. We help you compare those differences against care, not just the highway exit.',
+      'This market sits between Rochester Hills campuses and Bloomfield Township or Troy options that can differ in price and care level. We help you compare those differences against care, not just the highway exit.',
     notes: [
       'Practical for families who work along I-75 and want a short evening visit',
       'Rochester Hills and Troy add more memory care inventory when Auburn Hills is limited',
@@ -337,36 +319,18 @@ export const cities: City[] = [
     setting: 'I-75, Oakland University, and a commercial corridor sit next to quieter residential pockets that families still want to stay near.',
   },
   {
-    name: 'Waterford',
-    slug: 'waterford',
-    county: 'Oakland County',
-    countySlug: 'oakland-county',
-    nearby: ['white-lake', 'pontiac', 'commerce-township', 'auburn-hills'],
-    intro:
-      'Waterford Township families often search for senior care that stays in northwest Oakland County, close to the lakes and to relatives in White Lake or Pontiac. We compare assisted living, memory care, and adult foster care homes in Waterford and nearby townships.',
-    details:
-      'Searches here mix lakefront living, more affordable licensed homes, and larger communities toward Pontiac. We sort by care level first so you are not choosing a setting that cannot support medications or memory needs.',
-    notes: [
-      'A common search when family wants to remain in the lakes area of Oakland County',
-      'White Lake and Commerce Township add more residential care and assisted living choices',
-      'We look at licenses and care capability, not only how close a home is to the water',
-    ],
-    hospitals: 'Trinity Health Oakland (Pontiac) and McLaren Oakland',
-    setting: 'The lakes, Dixie Highway, and township roads make Waterford feel local even when the right building is a few miles over the line.',
-  },
-  {
     name: 'Commerce Township',
     slug: 'commerce-township',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['walled-lake', 'milford', 'white-lake', 'west-bloomfield'],
+    nearby: ['walled-lake', 'wixom', 'white-lake', 'west-bloomfield'],
     intro:
       'Commerce Township families often want senior living that stays west of the lakes, close to Haggerty, Union Lake, and relatives in Walled Lake or West Bloomfield. We compare assisted living, memory care, and smaller licensed homes in Commerce and neighboring communities.',
     details:
-      'This area sits between more expensive West Bloomfield options and farther-west Milford or Wixom campuses. We help you compare those price and care differences so a longer drive is only on the table if it actually improves the fit.',
+      'This area sits between more expensive West Bloomfield options and farther-west Wixom or South Lyon campuses. We help you compare those price and care differences so a longer drive is only on the table if it actually improves the fit.',
     notes: [
       'Useful when family is rooted around Union Lake, Haggerty, and Walled Lake schools',
-      'West Bloomfield and Milford often complete the short list if Commerce openings are limited',
+      'West Bloomfield and Wixom often complete the short list if Commerce openings are limited',
       'We compare both campus living and house-like adult foster care',
     ],
     hospitals: 'Henry Ford West Bloomfield Hospital and Huron Valley-Sinai in Commerce Township',
@@ -377,14 +341,14 @@ export const cities: City[] = [
     slug: 'white-lake',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['waterford', 'commerce-township', 'milford', 'walled-lake'],
+    nearby: ['commerce-township', 'walled-lake', 'wixom', 'west-bloomfield'],
     intro:
-      'White Lake families often look for senior care that stays in northwest Oakland County rather than moving down to bigger campuses in Novi or Troy. We compare assisted living, memory care, and licensed residential care in White Lake, Waterford, and Milford.',
+      'White Lake families often look for senior care that stays in northwest Oakland County rather than moving down to bigger campuses in Novi or Troy. We compare assisted living, memory care, and licensed residential care in White Lake, Commerce Township, and Walled Lake.',
     details:
-      'Options are more spread out here. Some families do well in a smaller licensed home; others need a full memory care program that may sit in Waterford or toward Clarkston. We map that honestly against how often relatives can visit.',
+      'Options are more spread out here. Some families do well in a smaller licensed home; others need a full memory care program that may sit in Commerce Township or toward Walled Lake. We map that honestly against how often relatives can visit.',
     notes: [
       'A fit for families who want to remain in the lakes-and-township part of Oakland County',
-      'Waterford and Milford usually add the next communities when White Lake is thin',
+      'Commerce Township and Walled Lake usually add the next communities when White Lake is thin',
       'We match care level first, then distance, so a closer home is not under-equipped',
     ],
     hospitals: 'Huron Valley-Sinai in Commerce Township and Trinity Health Oakland in Pontiac',
@@ -413,61 +377,43 @@ export const cities: City[] = [
     slug: 'wixom',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['novi', 'walled-lake', 'milford', 'south-lyon'],
+    nearby: ['novi', 'walled-lake', 'commerce-township', 'south-lyon'],
     intro:
-      'Wixom families often search for senior care along I-96 that stays between Novi and Milford. We compare assisted living, memory care, and licensed residential care in Wixom and the western Oakland communities around it.',
+      'Wixom families often search for senior care along I-96 that stays between Novi and South Lyon. We compare assisted living, memory care, and licensed residential care in Wixom and the western Oakland communities around it.',
     details:
-      'Wixom itself has fewer name-brand campuses than Novi, which is why many searches expand west to Milford or east to Novi. We help you compare those options on care and cost, not just which highway exit looks convenient.',
+      'Wixom itself has fewer name-brand campuses than Novi, which is why many searches expand west to South Lyon or east to Novi. We help you compare those options on care and cost, not just which highway exit looks convenient.',
     notes: [
       'Practical for families living or working along I-96 between Novi and Brighton',
-      'Novi and Milford usually complete the list when Wixom openings are limited',
+      'Novi and South Lyon usually complete the list when Wixom openings are limited',
       'We check whether a farther campus actually offers better memory care or just a newer lobby',
     ],
     hospitals: 'Ascension Providence Hospital in Novi and Huron Valley-Sinai',
-    setting: 'I-96 and the Novi–Milford stretch make Wixom a midpoint search, not a dead end.',
+    setting: 'I-96 and the Novi–South Lyon stretch make Wixom a midpoint search, not a dead end.',
   },
   {
     name: 'South Lyon',
     slug: 'south-lyon',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['milford', 'novi', 'brighton', 'northville'],
+    nearby: ['wixom', 'novi', 'brighton', 'northville'],
     intro:
       'South Lyon families often want senior living that stays in the southwestern corner of Oakland County, close to downtown, local churches, and relatives who also use Novi or Brighton. We compare assisted living, memory care, and smaller residential homes in South Lyon and nearby towns.',
     details:
-      'This is a smaller market. The right care may be in South Lyon, toward Milford, or into Livingston County around Brighton. We compare those counties’ pricing and programs so you know why a slightly longer drive might be worth it—or not.',
+      'This is a smaller market. The right care may be in South Lyon, toward Wixom, or into Livingston County around Brighton. We compare those counties’ pricing and programs so you know why a slightly longer drive might be worth it—or not.',
     notes: [
       'A fit when family wants a smaller-town setting rather than a Novi-style campus',
-      'Milford and Brighton add more assisted living and memory care if local homes cannot meet the care level',
+      'Wixom and Brighton add more assisted living and memory care if local homes cannot meet the care level',
       'We keep visit distance honest; a cheaper community an hour away is not always a win',
     ],
     hospitals: 'St. Joseph Mercy Brighton / Trinity Health Livingston and Ascension Providence Novi',
     setting: 'A small downtown and the Pontiac Trail / 10 Mile area sit between Oakland and Livingston options.',
   },
   {
-    name: 'Milford',
-    slug: 'milford',
-    county: 'Oakland County',
-    countySlug: 'oakland-county',
-    nearby: ['south-lyon', 'commerce-township', 'white-lake', 'brighton'],
-    intro:
-      'Milford families often look for senior care that keeps a village feel—close to downtown Milford, Kensington, and relatives in Commerce Township or White Lake. We compare assisted living, memory care, and licensed residential care in Milford and western Oakland County.',
-    details:
-      'Families here often reject a large highway campus at first, then need one if memory care or higher staffing is required. We show both paths: a smaller local home if it is safe, and a stronger program in Brighton or Novi if it is not.',
-    notes: [
-      'Good when staying near downtown Milford is part of what “home” still means',
-      'Brighton and Commerce Township expand memory care and assisted living choices',
-      'We will not recommend a charming setting that cannot support the real care need',
-    ],
-    hospitals: 'Huron Valley-Sinai and Trinity Health Livingston in Howell / Brighton',
-    setting: 'Downtown Milford and Kensington Metropark are why families try to keep care west of Novi.',
-  },
-  {
     name: 'Brighton',
     slug: 'brighton',
     county: 'Livingston County',
     countySlug: 'livingston-county',
-    nearby: ['howell', 'south-lyon', 'milford', 'ann-arbor'],
+    nearby: ['howell', 'south-lyon', 'wixom', 'ann-arbor'],
     intro:
       'Brighton families often need senior care that stays in Livingston County, close to downtown, I-96, and relatives who also shop and work along Grand River. We compare assisted living, memory care, and residential care in Brighton and nearby Howell.',
     details:
@@ -485,7 +431,7 @@ export const cities: City[] = [
     slug: 'howell',
     county: 'Livingston County',
     countySlug: 'livingston-county',
-    nearby: ['brighton', 'south-lyon', 'milford', 'ann-arbor'],
+    nearby: ['brighton', 'south-lyon', 'wixom', 'ann-arbor'],
     intro:
       'Howell families often want senior living that stays in the county seat, close to downtown, local churches, and Trinity Health Livingston. We compare assisted living, memory care, and licensed residential care in Howell and nearby Brighton.',
     details:
@@ -497,78 +443,6 @@ export const cities: City[] = [
     ],
     hospitals: 'Trinity Health Livingston in Howell',
     setting: 'The county seat, Grand River, and a true downtown still define what “local” means for Howell families.',
-  },
-  {
-    name: 'Westland',
-    slug: 'westland',
-    county: 'Wayne County',
-    countySlug: 'wayne-county',
-    nearby: ['garden-city', 'canton', 'livonia', 'dearborn-heights'],
-    intro:
-      'Westland families often search for senior care that stays affordable and close to Ford Road, Wayne Road, and relatives in Garden City or Canton. We compare assisted living, memory care, and adult foster care homes in Westland and western Wayne County.',
-    details:
-      'This market has a wide spread of prices and care levels. We start with what your loved one actually needs each day, then filter communities that can provide it without stretching the budget past what the family can sustain.',
-    notes: [
-      'A common search when cost and staying in western Wayne County both matter',
-      'Garden City, Canton, and Livonia add more licensed homes and assisted living campuses',
-      'We verify included care so a lower monthly rate is not missing medication support',
-    ],
-    hospitals: 'Trinity Health Livonia and Corewell Health Wayne / Dearborn campuses nearby',
-    setting: 'Ford Road and Wayne Road put Westland between Canton, Garden City, and Livonia inventory.',
-  },
-  {
-    name: 'Garden City',
-    slug: 'garden-city',
-    county: 'Wayne County',
-    countySlug: 'wayne-county',
-    nearby: ['westland', 'dearborn-heights', 'livonia', 'canton'],
-    intro:
-      'Garden City families often want senior living that stays in the Middlebelt and Ford Road area, close to relatives in Westland or Dearborn Heights. We compare assisted living, memory care, and smaller licensed homes in Garden City and neighboring Wayne County cities.',
-    details:
-      'Garden City itself is compact. Many short lists include Westland or Dearborn Heights once we know the care level. We keep the family’s existing doctors, churches, and visit habits in view so the next community still feels reachable.',
-    notes: [
-      'Good when adult children already live in Garden City, Westland, or Dearborn Heights',
-      'Westland usually adds more openings; Livonia adds more medical-adjacent campuses',
-      'We compare house-like adult foster care against larger assisted living side by side',
-    ],
-    hospitals: 'Corewell Health Dearborn and Trinity Health Livonia',
-    setting: 'Ford Road and Middlebelt make Garden City a tight, local search that still connects to several neighboring markets.',
-  },
-  {
-    name: 'Dearborn',
-    slug: 'dearborn',
-    county: 'Wayne County',
-    countySlug: 'wayne-county',
-    nearby: ['dearborn-heights', 'garden-city', 'westland', 'livonia'],
-    intro:
-      'Dearborn families often need senior care that stays close to Ford Road, Michigan Avenue, Corewell Health Dearborn, and relatives who still live in the city. We compare assisted living, memory care, and culturally familiar residential settings in Dearborn and Dearborn Heights.',
-    details:
-      'Language, food, and faith can matter as much as a vacant apartment here. We listen for those needs up front, then compare communities that can respect them while still providing the right medical and daily support.',
-    notes: [
-      'A strong search when staying in Dearborn is part of identity, not only convenience',
-      'Dearborn Heights and western Wayne options expand the list if a specific care level is missing in-city',
-      'We ask about language, dining, and visiting patterns before we recommend a short list',
-    ],
-    hospitals: 'Corewell Health Dearborn Hospital (Oakwood)',
-    setting: 'Michigan Avenue, Ford Road, and a dense mix of neighborhoods make cultural fit a real placement factor, not a footnote.',
-  },
-  {
-    name: 'Dearborn Heights',
-    slug: 'dearborn-heights',
-    county: 'Wayne County',
-    countySlug: 'wayne-county',
-    nearby: ['dearborn', 'garden-city', 'westland', 'livonia'],
-    intro:
-      'Dearborn Heights families often look for senior care that stays between Dearborn and Westland, close to Ford Road, Telegraph, and relatives in both cities. We compare assisted living, memory care, and licensed residential care in Dearborn Heights and the surrounding Wayne County communities.',
-    details:
-      'This city is often the overlap of a Dearborn cultural search and a Westland cost search. We help you decide which of those is the real priority, then tour communities that match instead of mixing unrelated buildings.',
-    notes: [
-      'Useful when family is split between Dearborn and the western Wayne suburbs',
-      'Dearborn, Garden City, and Westland typically complete a realistic short list',
-      'We compare care capability first so location is not the only filter',
-    ],
-    hospitals: 'Corewell Health Dearborn Hospital and Trinity Health Livonia',
-    setting: 'Telegraph and Ford Road put Dearborn Heights in the middle of several Wayne County senior-living markets.',
   },
   {
     name: 'Madison Heights',
@@ -629,18 +503,18 @@ export const cities: City[] = [
     slug: 'oak-park',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['southfield', 'ferndale', 'berkley', 'royal-oak'],
+    nearby: ['ferndale', 'berkley', 'royal-oak', 'madison-heights'],
     intro:
-      'Oak Park families often need senior living that stays near Coolidge, 10 Mile, and relatives in Southfield or Ferndale. We compare assisted living, memory care, and licensed residential care in Oak Park and neighboring Oakland County cities.',
+      'Oak Park families often need senior living that stays near Coolidge, 10 Mile, and relatives in Ferndale or Royal Oak. We compare assisted living, memory care, and licensed residential care in Oak Park and neighboring Oakland County cities.',
     details:
-      'Oak Park searches often overlap Southfield and Ferndale results. We start with care needs and cultural or faith preferences, then look at which nearby community can actually meet them on a budget the family can maintain.',
+      'Oak Park searches often overlap Ferndale and Royal Oak results. We start with care needs and cultural or faith preferences, then look at which nearby community can actually meet them on a budget the family can maintain.',
     notes: [
       'Useful when family is based along Coolidge between 8 Mile and 11 Mile',
-      'Southfield and Ferndale typically add more community inventory',
+      'Ferndale and Royal Oak typically add more community inventory',
       'We take dining, faith, and visiting patterns seriously in the match, not as extras',
     ],
     hospitals: 'Ascension Providence Southfield and Beaumont (Corewell Health) Royal Oak',
-    setting: 'Coolidge and 10 Mile put Oak Park between Southfield campuses and the Woodward-adjacent cities.',
+    setting: 'Coolidge and 10 Mile put Oak Park between western Oakland campuses and the Woodward-adjacent cities.',
   },
   {
     name: 'Warren',
@@ -749,24 +623,6 @@ export const cities: City[] = [
     ],
     hospitals: 'Michigan Medicine and Trinity Health Ann Arbor, about a short drive north',
     setting: 'Downtown Saline and US-12 make this a southern Washtenaw search with Ann Arbor as the medical overflow.',
-  },
-  {
-    name: 'Pontiac',
-    slug: 'pontiac',
-    county: 'Oakland County',
-    countySlug: 'oakland-county',
-    nearby: ['waterford', 'auburn-hills', 'bloomfield-township', 'troy'],
-    intro:
-      'Pontiac families often need senior care close to Trinity Health Oakland, Woodward, and relatives in Waterford or Bloomfield Township. We compare assisted living, memory care, and licensed residential care in Pontiac and the surrounding north Oakland communities.',
-    details:
-      'Pontiac searches can span very different price points within a few miles. We start with care and budget, then look at Waterford, Auburn Hills, or Bloomfield Township if a specific program is missing in-city.',
-    notes: [
-      'A practical search after a stay at Trinity Health Oakland or McLaren Oakland',
-      'Waterford and Auburn Hills often complete the short list',
-      'We compare both campus living and smaller adult foster care homes',
-    ],
-    hospitals: 'Trinity Health Oakland and McLaren Oakland in Pontiac',
-    setting: 'Woodward, the hospital campuses, and nearby Waterford lakes define most Pontiac-area placement decisions.',
   },
 ];
 

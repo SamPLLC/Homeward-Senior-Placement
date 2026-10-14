@@ -7,7 +7,7 @@ import { careTypes, countyCarePath } from '@/lib/care-types';
 export const metadata: Metadata = {
   title: 'Senior Care Service Areas in Southeast Michigan | Homeward Senior Placement',
   description:
-    'Homeward Senior Placement helps families find assisted living, memory care, and residential care across Oakland, Wayne, Macomb, Washtenaw, and Livingston counties—including Farmington Hills, Novi, Troy, Ann Arbor, Dearborn, and more.',
+    'Homeward Senior Placement helps families find assisted living, memory care, and residential care across Oakland, Wayne, Macomb, Washtenaw, and Livingston counties—including Farmington Hills, Novi, Troy, Ann Arbor, Plymouth, and more.',
   alternates: { canonical: '/areas' },
 };
 
