@@ -27,6 +27,9 @@ export default function Header() {
           <Link href="/areas" className="text-gray-700 hover:text-blue-600 font-bold text-xs sm:text-sm md:text-base lg:text-lg xl:text-2xl transition-colors whitespace-nowrap hidden sm:inline">
             Areas We Serve
           </Link>
+          <Link href="/guides" className="text-gray-700 hover:text-blue-600 font-bold text-xs sm:text-sm md:text-base lg:text-lg xl:text-2xl transition-colors whitespace-nowrap hidden md:inline">
+            Guides
+          </Link>
           <Link href="/about" className="text-gray-700 hover:text-blue-600 font-bold text-xs sm:text-sm md:text-base lg:text-lg xl:text-2xl transition-colors whitespace-nowrap">
             About
           </Link>

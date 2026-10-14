@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { cities, cityPath } from "@/lib/cities";
 import { services, servicePath } from "@/lib/services";
+import { counties, countyPath } from "@/lib/counties";
+import { guides, guidePath } from "@/lib/guides";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -54,6 +56,7 @@ export default function Footer() {
             <a href="/services" className="hover:text-gray-300">Services</a>
             <a href="/how-it-works" className="hover:text-gray-300">How it works</a>
             <a href="/areas" className="hover:text-gray-300">Areas</a>
+            <a href="/guides" className="hover:text-gray-300">Guides</a>
             <a href="/about" className="hover:text-gray-300">About</a>
             <a href="/contact" className="hover:text-gray-300">Contact</a>
           </nav>
@@ -61,6 +64,20 @@ export default function Footer() {
             {services.map((service) => (
               <Link key={service.slug} href={servicePath(service.slug)} className="hover:text-gray-300">
                 {service.name}
+              </Link>
+            ))}
+          </nav>
+          <nav className="mt-6 flex flex-wrap gap-x-4 gap-y-2" aria-label="Counties">
+            {counties.map((county) => (
+              <Link key={county.slug} href={countyPath(county.slug)} className="hover:text-gray-300">
+                {county.name}
+              </Link>
+            ))}
+          </nav>
+          <nav className="mt-6 flex flex-wrap gap-x-4 gap-y-2" aria-label="Guides">
+            {guides.map((guide) => (
+              <Link key={guide.slug} href={guidePath(guide.slug)} className="hover:text-gray-300">
+                {guide.title}
               </Link>
             ))}
           </nav>

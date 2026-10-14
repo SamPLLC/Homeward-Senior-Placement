@@ -3,6 +3,8 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 import { cities, cityPath } from '@/lib/cities';
 import { services, servicePath } from '@/lib/services';
+import { counties, countyPath } from '@/lib/counties';
+import { guides, guidePath } from '@/lib/guides';
 
 export const metadata: Metadata = {
   title: 'Free Assisted Living & Memory Care Placement in Southeast Michigan',
@@ -240,6 +242,17 @@ export default function Home() {
               </Link>
             ))}
           </div>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            {counties.map((county) => (
+              <Link
+                key={county.slug}
+                href={countyPath(county.slug)}
+                className="inline-flex items-center rounded-full border border-blue-900 px-4 py-2 text-blue-900 bg-white hover:bg-blue-50"
+              >
+                {county.name}
+              </Link>
+            ))}
+          </div>
           <p className="mt-8 text-center">
             <Link href="/areas" className="text-blue-900 font-medium underline underline-offset-4">
               View all service areas
@@ -249,6 +262,34 @@ export default function Home() {
       </section>
 
       <section className="bg-gray-50">
+        <div className="max-w-screen-xl mx-auto px-4 py-16 md:py-20">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">Guides for families</h2>
+            <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+              Answers to the searches families make before they know who to call—cost, memory care, hospital discharge, and how placement works.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {guides.slice(0, 6).map((guide) => (
+              <Link
+                key={guide.slug}
+                href={guidePath(guide.slug)}
+                className="rounded-2xl border border-gray-200 bg-white p-6 hover:border-blue-900"
+              >
+                <h3 className="text-xl font-semibold tracking-tight text-gray-900">{guide.title}</h3>
+                <p className="mt-2 text-gray-600">{guide.description}</p>
+              </Link>
+            ))}
+          </div>
+          <p className="mt-8 text-center">
+            <Link href="/guides" className="text-blue-900 font-medium underline underline-offset-4">
+              See all guides
+            </Link>
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-white">
         <div className="max-w-screen-xl mx-auto px-4 py-16 md:py-20">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">
@@ -275,9 +316,13 @@ export default function Home() {
               <Link href="/services/hospital-rehab-transitions" className="text-blue-900 underline underline-offset-4">
                 hospital transitions
               </Link>
-              , and{' '}
+              ,{' '}
               <Link href="/areas" className="text-blue-900 underline underline-offset-4">
                 the cities we serve
+              </Link>
+              , and our{' '}
+              <Link href="/guides" className="text-blue-900 underline underline-offset-4">
+                family guides
               </Link>
               .
             </p>
