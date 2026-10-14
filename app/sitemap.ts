@@ -4,11 +4,12 @@ import { services, servicePath } from '@/lib/services';
 import { careTypes, cityCarePath, countyCarePath } from '@/lib/care-types';
 import { counties, countyPath } from '@/lib/counties';
 import { guides, guidePath } from '@/lib/guides';
+import { hospitals, hospitalPath } from '@/lib/hospitals';
 
 const SITE_URL = 'https://homewardseniors.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ['', '/services', '/how-it-works', '/areas', '/about', '/contact', '/privacy', '/guides'];
+  const staticRoutes = ['', '/services', '/how-it-works', '/areas', '/about', '/contact', '/privacy', '/guides', '/hospitals'];
 
   return [
     ...staticRoutes.map((path) => ({
@@ -19,6 +20,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...guides.map((guide) => ({
       url: `${SITE_URL}${guidePath(guide.slug)}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.85,
+    })),
+    ...hospitals.map((hospital) => ({
+      url: `${SITE_URL}${hospitalPath(hospital.slug)}`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.85,

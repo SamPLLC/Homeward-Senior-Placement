@@ -11,7 +11,30 @@ export type Guide = {
   sections: GuideSection[];
   relatedServiceSlugs: string[];
   relatedGuideSlugs: string[];
+  published?: string;
+  updated?: string;
 };
+
+export const GUIDE_AUTHOR = 'Homeward Senior Placement';
+export const GUIDE_AUTHOR_ROLE = 'Local senior placement advisors in Southeast Michigan';
+export const GUIDE_UPDATED = '2026-10-14';
+export const GUIDE_PUBLISHED_EXISTING = '2026-10-08';
+
+export function guidePublished(guide: Guide): string {
+  return guide.published ?? GUIDE_PUBLISHED_EXISTING;
+}
+
+export function guideUpdated(guide: Guide): string {
+  return guide.updated ?? GUIDE_UPDATED;
+}
+
+export function formatGuideDate(iso: string): string {
+  return new Date(`${iso}T12:00:00`).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
 
 export const guides: Guide[] = [
   {
@@ -45,7 +68,7 @@ export const guides: Guide[] = [
       },
     ],
     relatedServiceSlugs: ['assisted-living', 'community-comparisons'],
-    relatedGuideSlugs: ['how-to-pay-for-senior-living-michigan', 'medicaid-assisted-living-michigan'],
+    relatedGuideSlugs: ['memory-care-cost-metro-detroit', 'how-to-pay-for-senior-living-michigan'],
   },
   {
     slug: 'when-is-it-time-for-memory-care',
@@ -109,7 +132,7 @@ export const guides: Guide[] = [
       },
     ],
     relatedServiceSlugs: ['hospital-rehab-transitions', 'assisted-living'],
-    relatedGuideSlugs: ['how-long-does-senior-placement-take', 'when-is-it-time-for-memory-care'],
+    relatedGuideSlugs: ['after-a-fall-next-48-hours', 'how-long-does-senior-placement-take'],
   },
   {
     slug: 'assisted-living-vs-memory-care-vs-afc',
@@ -142,7 +165,7 @@ export const guides: Guide[] = [
       },
     ],
     relatedServiceSlugs: ['assisted-living', 'memory-care', 'residential-care-homes'],
-    relatedGuideSlugs: ['adult-foster-care-homes-michigan', 'independent-living-vs-assisted-living'],
+    relatedGuideSlugs: ['michigan-assisted-living-licensing', 'adult-foster-care-homes-michigan'],
   },
   {
     slug: 'medicaid-assisted-living-michigan',
@@ -174,7 +197,7 @@ export const guides: Guide[] = [
       },
     ],
     relatedServiceSlugs: ['assisted-living', 'residential-care-homes'],
-    relatedGuideSlugs: ['how-to-pay-for-senior-living-michigan', 'adult-foster-care-homes-michigan'],
+    relatedGuideSlugs: ['how-to-pay-for-senior-living-michigan', 'michigan-assisted-living-licensing'],
   },
   {
     slug: 'how-to-tour-assisted-living',
@@ -239,7 +262,7 @@ export const guides: Guide[] = [
       },
     ],
     relatedServiceSlugs: ['personalized-care-assessments', 'community-comparisons'],
-    relatedGuideSlugs: ['when-is-it-time-for-memory-care', 'how-long-does-senior-placement-take'],
+    relatedGuideSlugs: ['after-a-fall-next-48-hours', 'when-is-it-time-for-memory-care'],
   },
   {
     slug: 'how-to-pay-for-senior-living-michigan',
@@ -271,7 +294,7 @@ export const guides: Guide[] = [
       },
     ],
     relatedServiceSlugs: ['community-comparisons', 'assisted-living'],
-    relatedGuideSlugs: ['assisted-living-cost-michigan', 'medicaid-assisted-living-michigan'],
+    relatedGuideSlugs: ['va-aid-and-attendance-michigan', 'long-term-care-insurance-michigan'],
   },
   {
     slug: 'independent-living-vs-assisted-living',
@@ -329,7 +352,7 @@ export const guides: Guide[] = [
       },
     ],
     relatedServiceSlugs: ['residential-care-homes', 'assisted-living'],
-    relatedGuideSlugs: ['assisted-living-vs-memory-care-vs-afc', 'medicaid-assisted-living-michigan'],
+    relatedGuideSlugs: ['michigan-assisted-living-licensing', 'assisted-living-vs-memory-care-vs-afc'],
   },
   {
     slug: 'questions-to-ask-memory-care',
@@ -394,9 +417,243 @@ export const guides: Guide[] = [
       },
     ],
     relatedServiceSlugs: ['hospital-rehab-transitions', 'personalized-care-assessments'],
+    relatedGuideSlugs: ['hospital-discharge-to-assisted-living', 'after-a-fall-next-48-hours'],
+  },
+  {
+    slug: 'michigan-assisted-living-licensing',
+    title: 'How Michigan licenses assisted living, adult foster care, and memory care',
+    description:
+      'Assisted living is not a Michigan license type. How Homes for the Aged, adult foster care, LARA surveys, and memory care programs actually work for families.',
+    intro:
+      'Michigan does not license something called “assisted living.” The buildings families tour in Metro Detroit are usually licensed as Homes for the Aged or adult foster care homes, or they are marketing a level of help that may not match a license at all. Memory care is almost always a program inside one of those licenses—not a separate state category. Knowing that changes which questions you ask.',
+    sections: [
+      {
+        heading: 'Assisted living is a marketing term here',
+        paragraphs: [
+          'The Michigan Department of Licensing and Regulatory Affairs (LARA) licenses Adult Foster Care (AFC) homes and Homes for the Aged (HFA). LARA is explicit: the state does not license “assisted living” or “independent living” as their own categories. A community can still use those words on a website. You should ask which license, if any, it holds, and what that license actually allows.',
+          'An Adult Foster Care home provides room, board, personal care, supervision, and protection to 20 or fewer adults. A Home for the Aged provides room, board, and supervised personal care to 21 or more older adults—or to fewer residents when it is a distinct part of a licensed nursing home. Those are the buckets most “assisted living” tours fall into in Oakland, Wayne, Macomb, Washtenaw, and Livingston counties.',
+        ],
+      },
+      {
+        heading: 'Memory care is a program, not a separate license',
+        paragraphs: [
+          'Michigan does not issue a standalone memory care license. A secured dementia neighborhood is typically a program inside an HFA or AFC: extra training, different staffing, a locked or wander-managed environment, and a more structured day. That can be excellent. It can also be a converted hallway with a keypad.',
+          'Ask what the license is, then ask how the memory program is staffed at night, how exit-seeking is handled, and whether the community will keep someone as dementia progresses. A locked door is not the same as a program. If you want the tour questions, use our memory care question list alongside this licensing picture.',
+        ],
+      },
+      {
+        heading: 'What a LARA survey is useful for',
+        paragraphs: [
+          'LARA inspects and investigates. Families can look up licensed AFC homes and Homes for the Aged through LARA’s public lookup tools. A survey or complaint investigation is a snapshot: the date, what was cited, whether it was a paperwork miss or a harm issue, and whether the same problem keeps coming back.',
+          'A clean survey is not a personality test, and a citation is not always a reason to walk away. Repeat issues around medication, supervision, or unexplained injuries should slow you down. A missing form from two years ago should not. We help families read that difference instead of treating a Google review or a survey PDF as the whole story.',
+        ],
+      },
+      {
+        heading: 'Unlicensed and “exempt” settings',
+        paragraphs: [
+          'Some buildings that look like assisted living are not licensed as HFA or AFC. Independent living with à-la-carte home care is one example. Michigan law also allows certain Homes for the Aged to operate under an exemption if they meet specific requirements. The practical question for a family is not the slogan on the awning. It is: who is awake overnight, who can help with medications, and what happens if needs increase.',
+          'This is general information, not legal advice. License rules and lookup tools change. For a specific building, confirm the current license on LARA’s site and ask the community to show it. Our job is to compare care settings in Southeast Michigan so you are not mixing an HFA, a small AFC home, and an unlicensed apartment as if they were the same product.',
+        ],
+      },
+    ],
+    relatedServiceSlugs: ['residential-care-homes', 'assisted-living'],
+    relatedGuideSlugs: ['adult-foster-care-homes-michigan', 'assisted-living-vs-memory-care-vs-afc'],
+    published: '2026-10-14',
+    updated: '2026-10-14',
+  },
+  {
+    slug: 'va-aid-and-attendance-michigan',
+    title: 'VA Aid and Attendance for assisted living in Michigan',
+    description:
+      'How VA Aid and Attendance can help wartime veterans and surviving spouses with senior living costs in Southeast Michigan, and why it is not instant.',
+    intro:
+      'VA Aid and Attendance can help some wartime veterans and surviving spouses pay for assisted living, memory care, or a licensed residential care home. It is not automatic, it is not a Michigan Medicaid program, and it is not a same-week check. Families who mention VA status on the first call get a more honest short list.',
+    sections: [
+      {
+        heading: 'Who this is usually for',
+        paragraphs: [
+          'Aid and Attendance is a VA pension add-on for veterans who served during a wartime period and for many surviving spouses. The person receiving care generally needs help with daily activities—bathing, dressing, medications, or protection from hazards of daily life—or is housebound. There are also income and net-worth rules. A parent who “was in the service” is not enough by itself; the wartime service and the care need both have to fit.',
+          'This is one of the first questions we ask in Metro Detroit because it changes the budget conversation. A family that might only look at the least expensive adult foster care home may have more range if Aid and Attendance is likely. A family counting on a benefit that will not apply should not tour buildings they cannot sustain.',
+        ],
+      },
+      {
+        heading: 'It helps with care costs. It is not instant.',
+        paragraphs: [
+          'Approved benefits can offset part of a monthly assisted living or memory care bill. They do not replace a community’s admission process, and they rarely arrive before a hospital discharge date. Many families pay privately for weeks or months while a claim is pending. If someone tells you the VA will “take care of it by Friday,” get a second opinion.',
+          'Paperwork usually includes military service records, medical evidence of the need for aid, and financial information. An accredited VA claims agent, Veterans Service Officer, or attorney who actually does this work is the right filing help. We are not a VA accredited claims office. We will not fill out the claim as if we were.',
+        ],
+      },
+      {
+        heading: 'How we use it in a Southeast Michigan search',
+        paragraphs: [
+          'Tell us in the first conversation if there is a veteran or surviving spouse. We then compare communities that fit the care level and a budget that includes—or does not include—Aid and Attendance. Some families in Oakland and Wayne counties use the benefit to stay closer to children. Others still need a lower-cost licensed home because the benefit will not cover a newer campus rate.',
+          'This is general information, not benefits, tax, or legal advice. Eligibility and amounts change. Confirm details with the VA or an accredited representative. Our job is to keep the housing search honest so you are not mixing a hoped-for benefit with a lease you cannot keep.',
+        ],
+      },
+    ],
+    relatedServiceSlugs: ['community-comparisons', 'assisted-living'],
+    relatedGuideSlugs: ['how-to-pay-for-senior-living-michigan', 'medicaid-assisted-living-michigan'],
+    published: '2026-10-14',
+    updated: '2026-10-14',
+  },
+  {
+    slug: 'long-term-care-insurance-michigan',
+    title: 'Using long-term care insurance for assisted living in Michigan',
+    description:
+      'How to check whether a long-term care policy covers assisted living or memory care in Michigan, what an elimination period means, and what to bring to the first tour.',
+    intro:
+      'A long-term care insurance policy can change a Metro Detroit search completely—or not at all. Some policies pay for assisted living and memory care. Some only pay for nursing homes. Some have a waiting period, a daily cap, or a definition of “assisted living” that does not match Michigan’s licenses. Read the policy before you fall in love with a community.',
+    sections: [
+      {
+        heading: 'Get the policy, not the memory of the policy',
+        paragraphs: [
+          'Families often remember that “there is insurance” and nothing else. The useful facts are: does it cover assisted living, adult foster care, and memory care, or only skilled nursing? What is the daily or monthly maximum? How long do benefits last? What is the elimination period before payments start? Is there inflation protection?',
+          'Ask the insurer or the agent of record for a benefits summary in writing. If the insured person has cognitive impairment, a family member with authority should make that call. Guessing from a folder in a drawer is how people tour $8,000 memory care on a policy that pays $150 a day after 90 days.',
+        ],
+      },
+      {
+        heading: 'Elimination periods and Michigan timing',
+        paragraphs: [
+          'An elimination period is a deductible in time. If the policy waits 90 days, someone still has to pay the community for those days. That matters after a hospital stay, when families want to move this week. It also matters if the person is already in assisted living and the clock has not officially started.',
+          'Insurers usually want a care need that meets the policy’s trigger—often help with a set number of daily activities, or a cognitive impairment. A community that is not licensed the way the policy expects can create a claim problem. That is one reason we ask about licenses, not only about the word “assisted living” on the sign.',
+        ],
+      },
+      {
+        heading: 'How we compare communities when insurance is involved',
+        paragraphs: [
+          'Bring the daily maximum and the covered settings to the first consultation. We can then short-list Southeast Michigan communities whose real monthly cost is in range after the insurance, rather than showing you campuses that only work if you ignore the cap. If the policy will not cover a small adult foster care home, we will not pretend it will.',
+          'This is not insurance advice. Policies differ. The carrier, an employer plan administrator, or a licensed insurance professional should confirm benefits. Our job is to match a care setting in Oakland, Wayne, Macomb, Washtenaw, or Livingston County to a budget you can actually keep once the claim is running.',
+        ],
+      },
+    ],
+    relatedServiceSlugs: ['community-comparisons', 'assisted-living'],
+    relatedGuideSlugs: ['how-to-pay-for-senior-living-michigan', 'michigan-assisted-living-licensing'],
+    published: '2026-10-14',
+    updated: '2026-10-14',
+  },
+  {
+    slug: 'memory-care-cost-metro-detroit',
+    title: 'How much does memory care cost in Metro Detroit?',
+    description:
+      'What families in Oakland, Wayne, and nearby counties usually pay for memory care, why it costs more than assisted living, and how to compare quotes honestly.',
+    intro:
+      'Memory care in Metro Detroit costs more than standard assisted living in the same city because staffing, security, and programming cost more. The gap is often in the range of about $1,000 to $3,000 more per month, but the spread between a licensed home and a newer Oakland County campus can be larger than that. Online averages hide the add-ons that show up after a tour.',
+    sections: [
+      {
+        heading: 'Why memory care is priced higher',
+        paragraphs: [
+          'A real memory care program needs more people on the floor, especially evenings and nights, plus training, a secured environment, and a day that is built for dementia—not a locked wing with the same calendar as assisted living. Communities charge for that. If a memory care rate looks almost identical to assisted living next door, ask what is actually different besides the keypad.',
+          'Base rates usually include an apartment or private room, meals, housekeeping, and a stated care level. They often do not include incontinence supplies, extra medication passes, two-person transfers, a second person in the room, or a community fee at move-in. Those lines are where two “$6,500” quotes stop being comparable.',
+        ],
+      },
+      {
+        heading: 'How costs tend to differ by county',
+        paragraphs: [
+          'Newer campuses in Novi, Bloomfield, Troy, and Ann Arbor often sit at the high end. Western Wayne licensed homes and some Macomb options can land lower, sometimes with less activity programming or fewer nurses on site. Livingston County has fewer campuses, so families in Brighton or Howell sometimes compare against South Lyon or Ann Arbor and have to weigh drive time against price.',
+          'Treat any number you see online as a starting point. Two buildings five miles apart in Farmington Hills and Livonia can differ by thousands of dollars a month once care levels are equalized. We gather the all-in number at the care level your loved one needs now—and the next level up—so a move-in special is not the whole story.',
+        ],
+      },
+      {
+        heading: 'How to compare without getting lost',
+        paragraphs: [
+          'Pick a monthly number the family can sustain for at least a year, including insurance or VA help if it is real. Then compare three to five memory care programs on staffing at night, what happens if the person declines, and the written fee schedule. A cheaper community that cannot keep someone safe is not a savings.',
+          'Medicare does not pay for long-term memory care. Medicaid in Michigan does not usually buy a private memory care apartment the way families hope. If money is tight, say so early so the short list includes licensed settings that might work—not only the buildings with the nicest lobby. This is not a price quote; it is how we help families compare in Southeast Michigan.',
+        ],
+      },
+    ],
+    relatedServiceSlugs: ['memory-care', 'community-comparisons'],
+    relatedGuideSlugs: ['assisted-living-cost-michigan', 'questions-to-ask-memory-care'],
+    published: '2026-10-14',
+    updated: '2026-10-14',
+  },
+  {
+    slug: 'after-a-fall-next-48-hours',
+    title: 'What to do in the 48 hours after a parent’s fall',
+    description:
+      'A practical sequence for Michigan families after a fall: medical care first, then how to decide among home, rehab, assisted living, and memory care without touring a dozen buildings.',
+    intro:
+      'A fall is how a lot of Metro Detroit senior-living searches start. The next 48 hours are for safety and information, not for signing a lease. You need medical clearance, a picture of daily needs, and one decision-maker—not twelve browser tabs of communities you have never seen.',
+    sections: [
+      {
+        heading: 'Medical care first, shopping later',
+        paragraphs: [
+          'If the fall just happened, the question is emergency care, not apartments. Head injury, hip pain, new confusion, blood thinners, and an inability to get up are reasons to use the ER or call 911. If your parent is already at Beaumont Royal Oak, Trinity Health Livonia, Henry Ford West Bloomfield, or an Ann Arbor hospital, stay focused on the medical picture until someone can explain weight-bearing status, cognition, and whether they can go home.',
+          'A “weakness” discharge note is not a care plan. Ask what help they need at night, whether they can take their own medications, and whether this is the first fall or the third. Those answers decide home-with-help versus assisted living versus memory care. They also decide whether a rehab stay is still appropriate.',
+        ],
+      },
+      {
+        heading: 'Do not tour the whole county this weekend',
+        paragraphs: [
+          'Panic touring is how families end up in the wrong building. Pick a decision-maker, gather the medication list, and name the cities people can actually visit. Then look at three to five options that match the care level—not every community with a vacancy in Oakland and Wayne County.',
+          'If the hospital wants a name by Thursday, that is a placement timeline, not a reason to skip the care question. We work that timeline: openings, paperwork, and whether going home overnight is safe. A free consultation in those 48 hours is often worth more than a Saturday of unplanned drop-ins.',
+        ],
+      },
+      {
+        heading: 'Home, a child’s house, or a community',
+        paragraphs: [
+          'Home can work if the house is still safe, someone can supervise, and the fall was a one-time event with a clear medical cause. It is a weaker plan if night-time toileting, wandering, or an exhausted spouse is already in the picture. Moving in with an adult child can be a bridge. It can also injure the caregiver and delay a better setting.',
+          'Assisted living, memory care, or a licensed adult foster care home becomes the more honest next step when overnight help is required or another fall is likely. You do not have to decide the rest of someone’s life in two days. You have to decide the next safe setting. We help Southeast Michigan families make that one decision without a family fee.',
+        ],
+      },
+    ],
+    relatedServiceSlugs: ['hospital-rehab-transitions', 'personalized-care-assessments'],
     relatedGuideSlugs: ['hospital-discharge-to-assisted-living', 'when-a-parent-cannot-live-alone'],
+    published: '2026-10-14',
+    updated: '2026-10-14',
   },
 ];
+
+export const guideTopics: { name: string; description: string; slugs: string[] }[] = [
+  {
+    name: 'Paying for care',
+    description: 'Cost, insurance, VA benefits, and Medicaid in Michigan.',
+    slugs: [
+      'assisted-living-cost-michigan',
+      'memory-care-cost-metro-detroit',
+      'how-to-pay-for-senior-living-michigan',
+      'va-aid-and-attendance-michigan',
+      'long-term-care-insurance-michigan',
+      'medicaid-assisted-living-michigan',
+    ],
+  },
+  {
+    name: 'Hospital, rehab, and crisis',
+    description: 'Discharge deadlines, falls, and how long placement actually takes.',
+    slugs: [
+      'hospital-discharge-to-assisted-living',
+      'after-a-fall-next-48-hours',
+      'how-long-does-senior-placement-take',
+      'when-a-parent-cannot-live-alone',
+    ],
+  },
+  {
+    name: 'Choosing a setting',
+    description: 'Assisted living, memory care, adult foster care, and how to tour.',
+    slugs: [
+      'assisted-living-vs-memory-care-vs-afc',
+      'when-is-it-time-for-memory-care',
+      'adult-foster-care-homes-michigan',
+      'independent-living-vs-assisted-living',
+      'how-to-tour-assisted-living',
+      'questions-to-ask-memory-care',
+    ],
+  },
+  {
+    name: 'Michigan rules',
+    description: 'How LARA licenses senior living, and what “memory care” legally is not.',
+    slugs: ['michigan-assisted-living-licensing'],
+  },
+];
+
+export const featuredGuideSlugs = [
+  'assisted-living-cost-michigan',
+  'memory-care-cost-metro-detroit',
+  'hospital-discharge-to-assisted-living',
+  'michigan-assisted-living-licensing',
+  'after-a-fall-next-48-hours',
+  'va-aid-and-attendance-michigan',
+];
+
 
 export function getGuideBySlug(slug: string): Guide | undefined {
   return guides.find((guide) => guide.slug === slug);

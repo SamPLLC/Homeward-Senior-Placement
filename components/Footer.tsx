@@ -3,6 +3,7 @@ import { cities, cityPath } from "@/lib/cities";
 import { services, servicePath } from "@/lib/services";
 import { counties, countyPath } from "@/lib/counties";
 import { guides, guidePath } from "@/lib/guides";
+import { hospitals, hospitalPath } from "@/lib/hospitals";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -57,6 +58,7 @@ export default function Footer() {
             <a href="/how-it-works" className="hover:text-gray-300">How it works</a>
             <a href="/areas" className="hover:text-gray-300">Areas</a>
             <a href="/guides" className="hover:text-gray-300">Guides</a>
+            <a href="/hospitals" className="hover:text-gray-300">Hospital discharge</a>
             <a href="/about" className="hover:text-gray-300">About</a>
             <a href="/contact" className="hover:text-gray-300">Contact</a>
           </nav>
@@ -71,6 +73,13 @@ export default function Footer() {
             {counties.map((county) => (
               <Link key={county.slug} href={countyPath(county.slug)} className="hover:text-gray-300">
                 {county.name}
+              </Link>
+            ))}
+          </nav>
+          <nav className="mt-6 flex flex-wrap gap-x-4 gap-y-2" aria-label="Hospital discharge">
+            {hospitals.map((hospital) => (
+              <Link key={hospital.slug} href={hospitalPath(hospital.slug)} className="hover:text-gray-300">
+                {hospital.shortName}
               </Link>
             ))}
           </nav>

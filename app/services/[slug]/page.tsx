@@ -8,6 +8,8 @@ import {
   serviceTitle,
   services,
 } from '@/lib/services';
+import { hospitalPath, hospitals } from '@/lib/hospitals';
+import { guidePath } from '@/lib/guides';
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -114,6 +116,30 @@ export default async function ServicePage({ params }: PageProps) {
           </div>
         ))}
       </div>
+
+      {service.slug === 'hospital-rehab-transitions' && (
+        <div className="mt-12">
+          <h2 className="text-2xl font-semibold tracking-tight text-gray-900">Metro Detroit hospital pages</h2>
+          <p className="mt-2 text-lg text-gray-600 max-w-3xl">
+            If you already know which campus you are leaving, start there. Also see our guide on{' '}
+            <Link href={guidePath('hospital-discharge-to-assisted-living')} className="text-blue-900 underline underline-offset-4">
+              hospital discharge to assisted living
+            </Link>
+            .
+          </p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {hospitals.map((hospital) => (
+              <Link
+                key={hospital.slug}
+                href={hospitalPath(hospital.slug)}
+                className="inline-flex items-center rounded-full border border-gray-300 px-4 py-2 text-gray-800 bg-white hover:border-blue-900 hover:text-blue-900"
+              >
+                {hospital.shortName}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="mt-12">
         <h2 className="text-2xl font-semibold tracking-tight text-gray-900">Other services</h2>
