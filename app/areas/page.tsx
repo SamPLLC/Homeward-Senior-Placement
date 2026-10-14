@@ -5,7 +5,7 @@ import { cities, cityPath } from '@/lib/cities';
 export const metadata: Metadata = {
   title: 'Senior Care Service Areas in Southeast Michigan | Homeward Senior Placement',
   description:
-    'Homeward Senior Placement helps families find assisted living, memory care, and home care in Farmington Hills, Northville, Plymouth, Livonia, Novi, Ann Arbor, Troy, and more of Southeast Michigan.',
+    'Homeward Senior Placement helps families find assisted living, memory care, and home care in Farmington Hills, Bloomfield Hills, Bloomfield Township, Northville, Plymouth, Livonia, Novi, Ann Arbor, Troy, and more of Southeast Michigan.',
   alternates: { canonical: '/areas' },
 };
 
