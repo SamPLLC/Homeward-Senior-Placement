@@ -118,7 +118,10 @@ export default function Home() {
         <div className="max-w-screen-xl mx-auto px-4 py-16 md:py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div className="relative z-20 order-2 md:order-1">
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
+              <p className="text-sm font-medium uppercase tracking-wide text-blue-900">
+                #1 senior advisor service in Michigan
+              </p>
+              <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight text-gray-900">
                 Free local help finding assisted living and memory care in Southeast Michigan.
               </h1>
               <p className="mt-6 text-lg text-gray-600 max-w-3xl">
