@@ -3,12 +3,17 @@ import type { Metadata } from 'next';
 import { cityPath } from '@/lib/cities';
 import { counties, countyCities, countyPath } from '@/lib/counties';
 import { careTypes, countyCarePath } from '@/lib/care-types';
+import { socialMetadata } from '@/lib/business';
+
+const title = 'Senior Care Service Areas in Southeast Michigan | Homeward Senior Placement';
+const description =
+  'Homeward Senior Placement helps families find assisted living, memory care, and residential care across Oakland, Wayne, Macomb, Washtenaw, and Livingston counties—including Farmington Hills, Novi, Troy, Ann Arbor, Plymouth, and more.';
 
 export const metadata: Metadata = {
-  title: 'Senior Care Service Areas in Southeast Michigan | Homeward Senior Placement',
-  description:
-    'Homeward Senior Placement helps families find assisted living, memory care, and residential care across Oakland, Wayne, Macomb, Washtenaw, and Livingston counties—including Farmington Hills, Novi, Troy, Ann Arbor, Plymouth, and more.',
+  title,
+  description,
   alternates: { canonical: '/areas' },
+  ...socialMetadata({ title, description, path: '/areas' }),
 };
 
 export default function Areas() {

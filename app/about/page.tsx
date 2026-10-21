@@ -1,6 +1,30 @@
+import type { Metadata } from 'next';
+import { BUSINESS_ID, SITE_URL, socialMetadata } from '@/lib/business';
+
+const title = 'About Homeward Senior Placement | Michigan Senior Living Advisors';
+const description =
+  'Homeward Senior Placement is a free senior living advisory service based in Farmington Hills, Michigan. We help families compare assisted living, memory care, and residential care across Southeast Michigan.';
+
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: { canonical: '/about' },
+  ...socialMetadata({ title, description, path: '/about' }),
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: title,
+  description,
+  url: `${SITE_URL}/about`,
+  mainEntity: { '@id': BUSINESS_ID },
+};
+
 export default function About() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">About Us</h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -13,7 +37,7 @@ export default function About() {
         <div>
           <h2 className="text-3xl font-semibold text-gray-900 mb-6">Our Story</h2>
           <p className="text-lg text-gray-600 mb-4">
-            Homeward Senior Placement was founded with one mission — to make finding the right senior living community a simple, caring, and stress-free experience for families.
+            Homeward Senior Placement was founded in Farmington Hills, Michigan with one mission — to make finding the right senior living community a simple, caring, and stress-free experience for families.
           </p>
           <p className="text-lg text-gray-600 mb-4">
             After spending years in the senior living industry, I've seen how challenging it can be for families to find the right fit for their loved ones. That's what inspired me to start Homeward — a service built on compassion, trust, and true understanding.

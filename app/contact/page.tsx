@@ -125,8 +125,8 @@ export default function Contact() {
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Contact Us</h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Ready to find the perfect senior living arrangement? We're here to help. 
-          Get in touch with us today for a free consultation.
+          Ready to find the perfect senior living arrangement? We&apos;re a Farmington Hills,
+          Michigan advisor serving families across Southeast Michigan. Get in touch today for a free consultation.
         </p>
       </div>
 
@@ -218,7 +218,9 @@ export default function Contact() {
                 </svg>
                 <div>
                   <p className="font-medium text-gray-900">Phone</p>
-                  <p className="text-gray-600">248-996-4637</p>
+                  <a className="text-gray-600 underline underline-offset-4" href="tel:2489964637">
+                    (248) 996-4637
+                  </a>
                 </div>
               </div>
               <div className="flex items-start">
@@ -227,7 +229,20 @@ export default function Contact() {
                 </svg>
                 <div>
                   <p className="font-medium text-gray-900">Email</p>
-                  <p className="text-gray-600">homewardseniors@gmail.com</p>
+                  <a className="text-gray-600 underline underline-offset-4" href="mailto:homewardseniors@gmail.com">
+                    homewardseniors@gmail.com
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <svg className="w-6 h-6 text-blue-900 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <div>
+                  <p className="font-medium text-gray-900">Location</p>
+                  <p className="text-gray-600">Farmington Hills, Michigan</p>
+                  <p className="text-gray-600">Serving Southeast Michigan</p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -236,7 +251,7 @@ export default function Contact() {
                 </svg>
                 <div>
                   <p className="font-medium text-gray-900">Hours</p>
-                  <p className="text-gray-600">Hours: 8am–7pm</p>
+                  <p className="text-gray-600">Monday–Sunday, 8am–7pm</p>
                 </div>
               </div>
             </div>

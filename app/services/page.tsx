@@ -1,12 +1,17 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { services, servicePath } from '@/lib/services';
+import { socialMetadata } from '@/lib/business';
+
+const title = 'Senior Placement Services in Michigan | Homeward Senior Placement';
+const description =
+  'Free help with personalized care assessments, assisted living, memory care, residential care homes, hospital transitions, and community comparisons in Southeast Michigan.';
 
 export const metadata: Metadata = {
-  title: 'Senior Placement Services in Michigan | Homeward Senior Placement',
-  description:
-    'Free help with personalized care assessments, assisted living, memory care, residential care homes, hospital transitions, and community comparisons in Southeast Michigan.',
+  title,
+  description,
   alternates: { canonical: '/services' },
+  ...socialMetadata({ title, description, path: '/services' }),
 };
 
 export default function Services() {

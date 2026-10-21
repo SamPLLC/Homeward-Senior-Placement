@@ -1,0 +1,25 @@
+{
+  "name": "Homeward Senior Placement",
+  "short_name": "Homeward",
+  "description": "Free senior placement in Farmington Hills and Southeast Michigan. Compare assisted living, memory care, and residential care with a local advisor.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#1e3a8a",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "/google-pic.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/google-pic.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

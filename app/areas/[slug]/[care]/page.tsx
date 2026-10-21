@@ -6,6 +6,7 @@ import { careTypes, cityCarePath, getCareTypeBySlug } from '@/lib/care-types';
 import { countyPath } from '@/lib/counties';
 import { guidePath } from '@/lib/guides';
 import { servicePath } from '@/lib/services';
+import { socialMetadata } from '@/lib/business';
 
 type PageProps = {
   params: Promise<{ slug: string; care: string }>;
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title,
     description,
     alternates: { canonical: path },
-    openGraph: { title, description, url: path, type: 'website' },
+    ...socialMetadata({ title, description, path }),
   };
 }
 

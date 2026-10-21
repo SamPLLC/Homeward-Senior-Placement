@@ -13,6 +13,7 @@ import {
 } from '@/lib/guides';
 import { getServiceBySlug, servicePath } from '@/lib/services';
 import { hospitalPath, hospitals } from '@/lib/hospitals';
+import { BUSINESS_ID, LOGO_PATH, SITE_URL, providerRef, socialMetadata } from '@/lib/business';
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -37,15 +38,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title,
     description: guide.description,
     alternates: { canonical: guidePath(guide.slug) },
-    openGraph: {
+    ...socialMetadata({
       title,
       description: guide.description,
-      url: guidePath(guide.slug),
+      path: guidePath(guide.slug),
       type: 'article',
       publishedTime: published,
       modifiedTime: updated,
       authors: [GUIDE_AUTHOR],
-    },
+    }),
   };
 }
 
@@ -77,11 +78,13 @@ export default async function GuidePage({ params }: PageProps) {
     dateModified: updated,
     author: {
       '@type': 'Organization',
+      '@id': BUSINESS_ID,
       name: GUIDE_AUTHOR,
       description: GUIDE_AUTHOR_ROLE,
     },
-    publisher: { '@type': 'Organization', name: GUIDE_AUTHOR },
-    mainEntityOfPage: `https://homewardseniors.com${guidePath(guide.slug)}`,
+    publisher: providerRef(),
+    image: `${SITE_URL}${LOGO_PATH}`,
+    mainEntityOfPage: `${SITE_URL}${guidePath(guide.slug)}`,
   };
 
   return (

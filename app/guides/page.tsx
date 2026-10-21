@@ -8,12 +8,17 @@ import {
   guideUpdated,
 } from '@/lib/guides';
 import { hospitalPath, hospitals } from '@/lib/hospitals';
+import { socialMetadata } from '@/lib/business';
+
+const title = 'Senior Care Guides for Michigan Families | Homeward Senior Placement';
+const description =
+  'Practical guides on assisted living cost, memory care, hospital discharge, Michigan licensing, VA Aid and Attendance, and how senior placement works in Southeast Michigan.';
 
 export const metadata: Metadata = {
-  title: 'Senior Care Guides for Michigan Families | Homeward Senior Placement',
-  description:
-    'Practical guides on assisted living cost, memory care, hospital discharge, Michigan licensing, VA Aid and Attendance, and how senior placement works in Southeast Michigan.',
+  title,
+  description,
   alternates: { canonical: '/guides' },
+  ...socialMetadata({ title, description, path: '/guides' }),
 };
 
 export default function GuidesIndex() {

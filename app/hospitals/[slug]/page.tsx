@@ -11,6 +11,7 @@ import {
 import { cityPath, getCityBySlug } from '@/lib/cities';
 import { getGuideBySlug, guidePath } from '@/lib/guides';
 import { servicePath } from '@/lib/services';
+import { LOGO_PATH, SITE_URL, providerRef, socialMetadata } from '@/lib/business';
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -35,7 +36,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title,
     description,
     alternates: { canonical: path },
-    openGraph: { title, description, url: path, type: 'article' },
+    ...socialMetadata({
+      title,
+      description,
+      path,
+      type: 'article',
+      publishedTime: '2026-10-14',
+      modifiedTime: '2026-10-14',
+      authors: ['Homeward Senior Placement'],
+    }),
   };
 }
 
@@ -61,12 +70,10 @@ export default async function HospitalPage({ params }: PageProps) {
     description: hospitalDescription(hospital),
     datePublished: '2026-10-14',
     dateModified: '2026-10-14',
-    author: {
-      '@type': 'Organization',
-      name: 'Homeward Senior Placement',
-      description: 'Local senior placement advisors in Southeast Michigan',
-    },
-    publisher: { '@type': 'Organization', name: 'Homeward Senior Placement' },
+    author: providerRef(),
+    publisher: providerRef(),
+    image: `${SITE_URL}${LOGO_PATH}`,
+    mainEntityOfPage: `${SITE_URL}${hospitalPath(hospital.slug)}`,
     about: {
       '@type': 'Hospital',
       name: hospital.name,

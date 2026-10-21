@@ -1,3 +1,17 @@
+import type { Metadata } from 'next';
+import { socialMetadata } from '@/lib/business';
+
+const title = 'Privacy Policy | Homeward Senior Placement';
+const description =
+  'How Homeward Senior Placement uses contact details to respond to senior placement requests in Michigan. We do not sell personal information.';
+
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: { canonical: '/privacy' },
+  ...socialMetadata({ title, description, path: '/privacy' }),
+};
+
 export default function PrivacyPage() {
   return (
     <main className="bg-white">
