@@ -11,6 +11,7 @@ import {
 } from '@/lib/counties';
 import { careTypes, countyCarePath } from '@/lib/care-types';
 import { cityPath } from '@/lib/cities';
+import { providerRef, socialMetadata } from '@/lib/business';
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title,
     description,
     alternates: { canonical: path },
-    openGraph: { title, description, url: path, type: 'website' },
+    ...socialMetadata({ title, description, path }),
   };
 }
 
@@ -47,8 +48,23 @@ export default async function CountyPage({ params }: PageProps) {
   }
   const localCities = countyCities(county);
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: `Senior placement in ${county.name}, Michigan`,
+    serviceType: ['Assisted living placement', 'Memory care placement', 'Home care referral'],
+    areaServed: {
+      '@type': 'AdministrativeArea',
+      name: county.name,
+      containedInPlace: { '@type': 'State', name: 'Michigan' },
+    },
+    provider: providerRef(),
+    description: countyDescription(county),
+  };
+
   return (
     <div className="max-w-screen-xl mx-auto px-4 py-16 md:py-20">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <nav className="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
         <ol className="flex flex-wrap items-center gap-2">
           <li>

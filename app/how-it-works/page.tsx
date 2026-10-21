@@ -1,3 +1,17 @@
+import type { Metadata } from 'next';
+import { socialMetadata } from '@/lib/business';
+
+const title = 'How Senior Placement Works | Homeward Senior Placement';
+const description =
+  'A free four-step process for Michigan families: consultation, matching, tours, and placement help for assisted living and memory care in Southeast Michigan.';
+
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: { canonical: '/how-it-works' },
+  ...socialMetadata({ title, description, path: '/how-it-works' }),
+};
+
 export default function HowItWorks() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

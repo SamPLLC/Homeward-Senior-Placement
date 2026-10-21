@@ -2,12 +2,17 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { hospitalDescription, hospitalPath, hospitals } from '@/lib/hospitals';
 import { guidePath } from '@/lib/guides';
+import { socialMetadata } from '@/lib/business';
+
+const title = 'Hospital Discharge to Assisted Living in Metro Detroit | Homeward Senior Placement';
+const description =
+  'Free help finding assisted living or memory care after a discharge from Beaumont Royal Oak, Trinity Health Livonia, Henry Ford West Bloomfield, Michigan Medicine, or Trinity Health Ann Arbor.';
 
 export const metadata: Metadata = {
-  title: 'Hospital Discharge to Assisted Living in Metro Detroit | Homeward Senior Placement',
-  description:
-    'Free help finding assisted living or memory care after a discharge from Beaumont Royal Oak, Trinity Health Livonia, Henry Ford West Bloomfield, Michigan Medicine, or Trinity Health Ann Arbor.',
+  title,
+  description,
   alternates: { canonical: '/hospitals' },
+  ...socialMetadata({ title, description, path: '/hospitals' }),
 };
 
 export default function HospitalsIndex() {

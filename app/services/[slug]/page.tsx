@@ -10,6 +10,7 @@ import {
 } from '@/lib/services';
 import { hospitalPath, hospitals } from '@/lib/hospitals';
 import { guidePath } from '@/lib/guides';
+import { providerRef, socialMetadata } from '@/lib/business';
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -36,17 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title,
     description,
     alternates: { canonical: path },
-    openGraph: {
-      title,
-      description,
-      url: path,
-      type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-    },
+    ...socialMetadata({ title, description, path }),
   };
 }
 
@@ -64,14 +55,7 @@ export default async function ServicePage({ params }: PageProps) {
     '@type': 'Service',
     name: service.name,
     description: serviceDescription(service),
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'Homeward Senior Placement',
-      telephone: '+1-248-996-4637',
-      email: 'homewardseniors@gmail.com',
-      url: 'https://homewardseniors.com',
-      areaServed: 'Southeast Michigan',
-    },
+    provider: providerRef(),
     areaServed: 'Southeast Michigan',
   };
 

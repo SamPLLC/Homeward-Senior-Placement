@@ -5,19 +5,23 @@ import { services, servicePath } from '@/lib/services';
 import { counties, countyPath } from '@/lib/counties';
 import { featuredGuideSlugs, getGuideBySlug, guidePath } from '@/lib/guides';
 import { hospitalPath, hospitals } from '@/lib/hospitals';
+import {
+  BUSINESS_HOURS_DISPLAY,
+  BUSINESS_PHONE_DISPLAY,
+  BUSINESS_PHONE_TEL,
+  SITE_URL,
+  socialMetadata,
+} from '@/lib/business';
+
+const title = 'Free Assisted Living & Memory Care Placement in Southeast Michigan';
+const description =
+  'Homeward Senior Placement helps Michigan families compare assisted living, memory care, residential care homes, and hospital-to-home options at no cost. Serving Farmington Hills, Novi, Bloomfield Hills, Troy, Ann Arbor, and more.';
 
 export const metadata: Metadata = {
-  title: 'Free Assisted Living & Memory Care Placement in Southeast Michigan',
-  description:
-    'Homeward Senior Placement helps Michigan families compare assisted living, memory care, residential care homes, and hospital-to-home options at no cost. Serving Farmington Hills, Novi, Bloomfield Hills, Troy, Ann Arbor, and more.',
+  title,
+  description,
   alternates: { canonical: '/' },
-  openGraph: {
-    title: 'Free Assisted Living & Memory Care Placement in Southeast Michigan',
-    description:
-      'Compare senior living options with a local advisor. No cost to families. Serving Southeast Michigan.',
-    url: '/',
-    type: 'website',
-  },
+  ...socialMetadata({ title, description, path: '/' }),
 };
 
 const steps = [
@@ -83,29 +87,16 @@ const faqs = [
 export default function Home() {
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'LocalBusiness',
-        name: 'Homeward Senior Placement',
-        url: 'https://homewardseniors.com',
-        telephone: '+1-248-996-4637',
-        email: 'homewardseniors@gmail.com',
-        areaServed: 'Southeast Michigan',
-        description:
-          'Free local senior placement help for assisted living, memory care, residential care homes, and hospital-to-home transitions.',
+    '@type': 'FAQPage',
+    '@id': `${SITE_URL}/#faq`,
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
       },
-      {
-        '@type': 'FAQPage',
-        mainEntity: faqs.map((faq) => ({
-          '@type': 'Question',
-          name: faq.question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: faq.answer,
-          },
-        })),
-      },
-    ],
+    })),
   };
 
   return (
@@ -144,10 +135,10 @@ export default function Home() {
               </div>
               <p className="mt-5 text-base md:text-lg text-gray-800">
                 Call{' '}
-                <a className="font-semibold text-blue-900 underline underline-offset-4" href="tel:2489964637">
-                  (248) 996-4637
+                <a className="font-semibold text-blue-900 underline underline-offset-4" href={`tel:${BUSINESS_PHONE_TEL}`}>
+                  {BUSINESS_PHONE_DISPLAY}
                 </a>
-                <span className="text-gray-600"> · 8am–7pm</span>
+                <span className="text-gray-600"> · {BUSINESS_HOURS_DISPLAY}</span>
               </p>
             </div>
 
@@ -372,10 +363,10 @@ export default function Home() {
             <p className="mt-2 text-lg text-gray-600">Speak with a local advisor who understands Michigan communities.</p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
               <a
-                href="tel:2489964637"
+                href={`tel:${BUSINESS_PHONE_TEL}`}
                 className="inline-flex items-center justify-center rounded-lg border border-blue-900 text-blue-900 px-6 py-3 font-medium hover:bg-white"
               >
-                Call (248) 996-4637
+                Call {BUSINESS_PHONE_DISPLAY}
               </a>
               <Link
                 href="/contact"
@@ -391,14 +382,14 @@ export default function Home() {
       <section className="bg-blue-50">
         <div className="max-w-screen-xl mx-auto px-4 py-3 text-center text-sm md:text-base text-blue-900">
           Talk to a local advisor today:{' '}
-          <a className="underline underline-offset-4" href="tel:2489964637">
-            (248) 996-4637
+          <a className="underline underline-offset-4" href={`tel:${BUSINESS_PHONE_TEL}`}>
+            {BUSINESS_PHONE_DISPLAY}
           </a>{' '}
-          •{' '}
+          • Farmington Hills, MI •{' '}
           <a className="underline underline-offset-4" href="mailto:homewardseniors@gmail.com">
             homewardseniors@gmail.com
           </a>{' '}
-          • 8am–7pm
+          • {BUSINESS_HOURS_DISPLAY}
         </div>
       </section>
     </div>

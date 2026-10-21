@@ -7,5 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
     },
     sitemap: 'https://homewardseniors.com/sitemap.xml',
+    host: 'https://homewardseniors.com',
   };
 }

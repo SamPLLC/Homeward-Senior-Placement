@@ -4,6 +4,14 @@ import { services, servicePath } from "@/lib/services";
 import { counties, countyPath } from "@/lib/counties";
 import { guides, guidePath } from "@/lib/guides";
 import { hospitals, hospitalPath } from "@/lib/hospitals";
+import {
+  BUSINESS_CITY,
+  BUSINESS_EMAIL,
+  BUSINESS_HOURS_DISPLAY,
+  BUSINESS_PHONE_DISPLAY,
+  BUSINESS_PHONE_TEL,
+  BUSINESS_REGION,
+} from "@/lib/business";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -19,6 +27,10 @@ export default function Footer() {
             <p className="text-gray-400 text-base">
               Free, local guidance for assisted living and memory care in Michigan.
             </p>
+            <p className="mt-3 text-gray-400 text-base">
+              {BUSINESS_CITY}, {BUSINESS_REGION}
+            </p>
+            <p className="text-gray-400 text-base">Serving Southeast Michigan</p>
           </div>
 
           {/* Contact */}
@@ -26,16 +38,16 @@ export default function Footer() {
             <h3 className="text-white text-lg font-semibold mb-3">Contact</h3>
             <ul className="space-y-2 text-base">
               <li>
-                <a href="tel:2489964637" className="hover:text-white underline-offset-4 hover:underline">
-                  Phone: (248) 996-4637
+                <a href={`tel:${BUSINESS_PHONE_TEL}`} className="hover:text-white underline-offset-4 hover:underline">
+                  Phone: {BUSINESS_PHONE_DISPLAY}
                 </a>
               </li>
               <li>
-                <a href="mailto:homewardseniors@gmail.com" className="hover:text-white underline-offset-4 hover:underline">
-                  Email: homewardseniors@gmail.com
+                <a href={`mailto:${BUSINESS_EMAIL}`} className="hover:text-white underline-offset-4 hover:underline">
+                  Email: {BUSINESS_EMAIL}
                 </a>
               </li>
-              <li>Hours: 8am–7pm</li>
+              <li>Hours: {BUSINESS_HOURS_DISPLAY}</li>
             </ul>
           </div>
 
