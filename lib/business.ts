@@ -13,9 +13,7 @@ export const BUSINESS_EMAIL = 'homewardseniors@gmail.com';
 export const BUSINESS_HOURS_DISPLAY = 'Monday–Sunday, 8am–7pm';
 export const BUSINESS_CITY = 'Farmington Hills';
 export const BUSINESS_REGION = 'MI';
-export const BUSINESS_COUNTRY = 'US';
 export const BUSINESS_AREA = 'Southeast Michigan';
-export const BUSINESS_LOCALITY = `${BUSINESS_CITY}, ${BUSINESS_REGION}`;
 export const LOGO_PATH = '/google-pic.png';
 export const OG_IMAGE_PATH = '/homeward new image.png';
 export const WORDMARK_PATH = '/logo.png';
@@ -76,13 +74,6 @@ export function businessJsonLd() {
     telephone: BUSINESS_PHONE_E164,
     email: BUSINESS_EMAIL,
     description: BUSINESS_DESCRIPTION,
-    slogan: '#1 senior advisor service in Michigan',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: BUSINESS_CITY,
-      addressRegion: BUSINESS_REGION,
-      addressCountry: BUSINESS_COUNTRY,
-    },
     areaServed: [
       {
         '@type': 'AdministrativeArea',
