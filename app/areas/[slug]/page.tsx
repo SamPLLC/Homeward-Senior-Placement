@@ -7,6 +7,7 @@ import {
   cityPath,
   cityTitle,
   getCityBySlug,
+  startPath,
 } from '@/lib/cities';
 import { careTypes, cityCarePath } from '@/lib/care-types';
 import { countyPath } from '@/lib/counties';
@@ -166,10 +167,10 @@ export default async function CityPage({ params }: PageProps) {
             Call (248) 996-4637
           </a>
           <Link
-            href="/contact"
+            href={startPath(city.slug)}
             className="inline-flex items-center justify-center rounded-lg bg-blue-900 px-6 py-3 text-white font-medium hover:bg-blue-800"
           >
-            Contact Us
+            Start a short assessment
           </Link>
         </div>
       </div>

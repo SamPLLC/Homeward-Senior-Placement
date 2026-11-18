@@ -33,8 +33,8 @@ export default function Header() {
           <Link href="/about" className="text-gray-700 hover:text-blue-600 font-bold text-xs sm:text-sm md:text-base lg:text-lg xl:text-2xl transition-colors whitespace-nowrap">
             About
           </Link>
-          <Link href="/contact" className="bg-blue-600 text-white px-3 sm:px-4 md:px-5 xl:px-7 py-1.5 sm:py-2 md:py-2 xl:py-3 rounded-lg hover:bg-blue-700 transition-colors font-bold text-xs sm:text-sm md:text-base lg:text-lg xl:text-2xl whitespace-nowrap">
-            Contact Us
+          <Link href="/start" className="bg-blue-600 text-white px-3 sm:px-4 md:px-5 xl:px-7 py-1.5 sm:py-2 md:py-2 xl:py-3 rounded-lg hover:bg-blue-700 transition-colors font-bold text-xs sm:text-sm md:text-base lg:text-lg xl:text-2xl whitespace-nowrap">
+            Get help
           </Link>
         </nav>
       </div>

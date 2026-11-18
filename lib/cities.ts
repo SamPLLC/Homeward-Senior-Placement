@@ -17,7 +17,7 @@ export const cities: City[] = [
     slug: 'farmington-hills',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['west-bloomfield', 'novi', 'livonia', 'oak-park'],
+    nearby: ['farmington', 'southfield', 'novi', 'west-bloomfield'],
     intro:
       'Farmington Hills families often need senior care that stays close to children and grandchildren in Oakland County. We help you compare assisted living, memory care, and residential care options along the 12 Mile, Orchard Lake, and Grand River corridors.',
     details:
@@ -89,7 +89,7 @@ export const cities: City[] = [
     slug: 'west-bloomfield',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['bloomfield-hills', 'bloomfield-township', 'farmington-hills', 'novi'],
+    nearby: ['orchard-lake', 'keego-harbor', 'farmington-hills', 'bloomfield-hills'],
     intro:
       'West Bloomfield families often look for senior care that balances privacy, cultural fit, and higher levels of support. We compare assisted living, memory care, and residential care around the lakes and throughout western Oakland County.',
     details:
@@ -107,7 +107,7 @@ export const cities: City[] = [
     slug: 'bloomfield-hills',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['bloomfield-township', 'west-bloomfield', 'birmingham', 'troy'],
+    nearby: ['franklin', 'beverly-hills', 'birmingham', 'west-bloomfield'],
     intro:
       'Bloomfield Hills families often want senior care that stays close to home, Woodward, and relatives in Birmingham, Troy, and West Bloomfield. We compare assisted living, memory care, and residential care in Bloomfield Hills and the surrounding Oakland County communities.',
     details:
@@ -179,7 +179,7 @@ export const cities: City[] = [
     slug: 'troy',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['birmingham', 'royal-oak', 'rochester-hills', 'sterling-heights'],
+    nearby: ['clawson', 'birmingham', 'royal-oak', 'rochester-hills'],
     intro:
       'Troy is a hub for Oakland County families searching for assisted living and memory care close to work, Big Beaver, and nearby Royal Oak or Rochester Hills. We compare local communities and residential care so you can stay close without guessing.',
     details:
@@ -215,7 +215,7 @@ export const cities: City[] = [
     slug: 'rochester-hills',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['rochester', 'troy', 'auburn-hills', 'shelby-township'],
+    nearby: ['rochester', 'lake-orion', 'auburn-hills', 'troy'],
     intro:
       'Rochester Hills families often look for senior living close to downtown Rochester, local parks, and adult children in northern Oakland County. We help compare assisted living, memory care, and residential care in Rochester Hills and nearby Rochester.',
     details:
@@ -251,7 +251,7 @@ export const cities: City[] = [
     slug: 'royal-oak',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['berkley', 'ferndale', 'troy', 'madison-heights'],
+    nearby: ['berkley', 'clawson', 'pleasant-ridge', 'ferndale'],
     intro:
       'Royal Oak families often want senior care close to downtown, Beaumont, and adult children who already live in the city. We compare assisted living, memory care, and residential care in Royal Oak and nearby Troy and Berkley.',
     details:
@@ -269,7 +269,7 @@ export const cities: City[] = [
     slug: 'birmingham',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['bloomfield-hills', 'troy', 'royal-oak', 'bloomfield-township'],
+    nearby: ['beverly-hills', 'bloomfield-hills', 'franklin', 'royal-oak'],
     intro:
       'Birmingham families often want senior living that stays close to downtown, Woodward, and adult children who work along Big Beaver. We compare assisted living, memory care, and smaller residential settings in Birmingham and neighboring Bloomfield Hills and Troy.',
     details:
@@ -305,7 +305,7 @@ export const cities: City[] = [
     slug: 'auburn-hills',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['rochester-hills', 'bloomfield-township', 'troy', 'rochester'],
+    nearby: ['pontiac', 'lake-orion', 'rochester-hills', 'troy'],
     intro:
       'Auburn Hills families often need senior living that stays near I-75, Oakland University, and relatives commuting from Rochester Hills or Troy. We compare assisted living, memory care, and residential care in Auburn Hills and the surrounding north Oakland communities.',
     details:
@@ -323,7 +323,7 @@ export const cities: City[] = [
     slug: 'commerce-township',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['walled-lake', 'wixom', 'white-lake', 'west-bloomfield'],
+    nearby: ['milford', 'keego-harbor', 'walled-lake', 'white-lake'],
     intro:
       'Commerce Township families often want senior living that stays west of the lakes, close to Haggerty, Union Lake, and relatives in Walled Lake or West Bloomfield. We compare assisted living, memory care, and smaller licensed homes in Commerce and neighboring communities.',
     details:
@@ -341,7 +341,7 @@ export const cities: City[] = [
     slug: 'white-lake',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['commerce-township', 'walled-lake', 'wixom', 'west-bloomfield'],
+    nearby: ['waterford', 'clarkston', 'commerce-township', 'walled-lake'],
     intro:
       'White Lake families often look for senior care that stays in northwest Oakland County rather than moving down to bigger campuses in Novi or Troy. We compare assisted living, memory care, and licensed residential care in White Lake, Commerce Township, and Walled Lake.',
     details:
@@ -359,7 +359,7 @@ export const cities: City[] = [
     slug: 'walled-lake',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['commerce-township', 'novi', 'wixom', 'west-bloomfield'],
+    nearby: ['keego-harbor', 'commerce-township', 'novi', 'west-bloomfield'],
     intro:
       'Walled Lake families often want senior living close to the lake, Maple Road, and relatives in Commerce Township or Novi. We compare assisted living, memory care, and residential care around Walled Lake and western Oakland County.',
     details:
@@ -449,7 +449,7 @@ export const cities: City[] = [
     slug: 'madison-heights',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['royal-oak', 'troy', 'sterling-heights', 'ferndale'],
+    nearby: ['clawson', 'royal-oak', 'troy', 'ferndale'],
     intro:
       'Madison Heights families often want senior care along I-75 and 13 Mile that stays close to Royal Oak, Troy, and relatives in Sterling Heights. We compare assisted living, memory care, and residential care in Madison Heights and the first ring of Oakland and Macomb cities.',
     details:
@@ -467,7 +467,7 @@ export const cities: City[] = [
     slug: 'ferndale',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['royal-oak', 'oak-park', 'berkley', 'madison-heights'],
+    nearby: ['pleasant-ridge', 'huntington-woods', 'oak-park', 'royal-oak'],
     intro:
       'Ferndale families often want senior living close to Nine Mile, Woodward, and adult children who already live in the city or in Royal Oak. We compare assisted living, memory care, and smaller residential settings in Ferndale and neighboring Oak Park, Berkley, and Royal Oak.',
     details:
@@ -485,7 +485,7 @@ export const cities: City[] = [
     slug: 'berkley',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['royal-oak', 'ferndale', 'oak-park', 'birmingham'],
+    nearby: ['huntington-woods', 'clawson', 'royal-oak', 'ferndale'],
     intro:
       'Berkley families often look for senior care that stays in the 12 Mile and Coolidge area, close to Royal Oak hospitals and relatives in Ferndale or Birmingham. We compare assisted living, memory care, and residential care in Berkley and the surrounding Woodward-adjacent cities.',
     details:
@@ -503,7 +503,7 @@ export const cities: City[] = [
     slug: 'oak-park',
     county: 'Oakland County',
     countySlug: 'oakland-county',
-    nearby: ['ferndale', 'berkley', 'royal-oak', 'madison-heights'],
+    nearby: ['huntington-woods', 'lathrup-village', 'southfield', 'ferndale'],
     intro:
       'Oak Park families often need senior living that stays near Coolidge, 10 Mile, and relatives in Ferndale or Royal Oak. We compare assisted living, memory care, and licensed residential care in Oak Park and neighboring Oakland County cities.',
     details:
@@ -588,6 +588,312 @@ export const cities: City[] = [
     hospitals: 'Michigan Medicine and Trinity Health Ann Arbor, about a short drive north',
     setting: 'Downtown Saline and US-12 make this a southern Washtenaw search with Ann Arbor as the medical overflow.',
   },
+  {
+    name: 'Farmington',
+    slug: 'farmington',
+    county: 'Oakland County',
+    countySlug: 'oakland-county',
+    nearby: ['farmington-hills', 'livonia', 'novi', 'franklin'],
+    intro:
+      'Farmington is the smaller city on Grand River, not the larger suburb of Farmington Hills around it. Families who say “Farmington” often mean downtown, Shiawassee, or Riley Park, and they want a parent close enough that a weekday visit is still easy.',
+    details:
+      'Most assisted living and memory care inventory sits in Farmington Hills rather than inside Farmington’s city limits. We sort that out on the first call so you are not touring a campus that is “Farmington” only in a mailing address. Livonia is the other nearby look when Oakland County pricing or availability does not fit.',
+    notes: [
+      'A downtown Farmington search is different from a Farmington Hills corridor search',
+      'Farmington Hills usually supplies the campuses; Farmington is the visit anchor',
+      'We say so when a community is outside the city, before you drive there',
+    ],
+    hospitals: 'Corewell Health Farmington Hills Hospital, a short drive into Farmington Hills',
+    setting: 'Grand River, Shiawassee, and a compact downtown sit inside a much larger Farmington Hills search area.',
+  },
+  {
+    name: 'Southfield',
+    slug: 'southfield',
+    county: 'Oakland County',
+    countySlug: 'oakland-county',
+    nearby: ['farmington-hills', 'lathrup-village', 'oak-park', 'beverly-hills'],
+    intro:
+      'Southfield families usually want senior care that stays near the Lodge, Telegraph, or Evergreen, close to work and to Ascension Providence. The city is large enough that the Civic Center, 12 Mile, and the northwestern corner are not the same search.',
+    details:
+      'Southfield borders Farmington Hills, Lathrup Village, Oak Park, Beverly Hills, and Franklin. A community five minutes toward Farmington Hills can be a better care match than one deeper in Southfield, and the reverse is true when Providence follow-up is the reason you are looking here. We compare those drives against care level and monthly cost.',
+    notes: [
+      'Useful when family works along the Lodge, Telegraph, or Northwestern Highway',
+      'Providence Hospital makes this a common discharge starting point',
+      'Farmington Hills and Oak Park are the usual next cities if Southfield openings are thin',
+    ],
+    hospitals: 'Ascension Providence Hospital in Southfield',
+    setting: 'The Lodge, Telegraph, Evergreen, and the Civic Center split Southfield into more than one market.',
+  },
+  {
+    name: 'Pontiac',
+    slug: 'pontiac',
+    county: 'Oakland County',
+    countySlug: 'oakland-county',
+    nearby: ['auburn-hills', 'waterford', 'bloomfield-hills', 'clarkston'],
+    intro:
+      'Pontiac is the Oakland County seat, and families here often start because of Trinity Health Oakland or McLaren Oakland, not because they want a campus in Troy. Woodward, Wide Track, and M-59 are the landmarks that keep a parent close to doctors and to relatives already in the city.',
+    details:
+      'Downtown Pontiac, the hospital corridors, and the neighborhoods toward Auburn Hills or Waterford do not share one set of buildings. If the right memory care or assisted living opening is not in Pontiac, Waterford and Auburn Hills are usually a shorter, more realistic next look than Birmingham or Novi. We will say when a farther community is only “nicer,” not safer.',
+    notes: [
+      'A practical search after a stay at Trinity Health Oakland or McLaren Oakland',
+      'Waterford and Auburn Hills are the nearby cities we check when Pontiac is full',
+      'We match care and visit distance before we talk about a move across the county',
+    ],
+    hospitals: 'Trinity Health Oakland and McLaren Oakland, both in Pontiac',
+    setting: 'Woodward, downtown, and M-59 put the hospitals and the neighboring townships in the same short drive.',
+  },
+  {
+    name: 'Clawson',
+    slug: 'clawson',
+    county: 'Oakland County',
+    countySlug: 'oakland-county',
+    nearby: ['royal-oak', 'troy', 'madison-heights', 'berkley'],
+    intro:
+      'Clawson is a small residential city between Royal Oak and Troy, centered on 14 Mile and Crooks. Families searching here usually want to keep that downtown and those school and church ties, not relocate a parent to a bigger campus an hour away.',
+    details:
+      'Large assisted living and memory care buildings are limited inside Clawson itself. The honest short list usually adds Troy to the north and Royal Oak to the south, sometimes Madison Heights if budget is the constraint. We keep Clawson as the place family will drive from, then compare which neighboring city actually has the care level.',
+    notes: [
+      'A fit when 14 Mile and downtown Clawson are the visit pattern you want to keep',
+      'Troy and Royal Oak hold most of the nearby assisted living and memory care',
+      'We do not stretch a Clawson-only list if the needed care is not in the city',
+    ],
+    hospitals: 'Beaumont (Corewell Health) Royal Oak and Corewell Health Troy Hospital',
+    setting: '14 Mile and Crooks put Clawson between Royal Oak’s hospital and Troy’s campuses.',
+  },
+  {
+    name: 'Waterford',
+    slug: 'waterford',
+    county: 'Oakland County',
+    countySlug: 'oakland-county',
+    nearby: ['pontiac', 'clarkston', 'white-lake', 'auburn-hills'],
+    intro:
+      'Waterford Township is a lakes community — Cass, Pontiac, Elizabeth, and the others — spread along Dixie Highway and M-59. Families here often want a parent to stay on the north side of Oakland County instead of moving down to Novi or Troy.',
+    details:
+      '“Waterford” can mean very different drive times depending on which lake you start from. Some families do well in a smaller licensed home nearby. Others need a memory care program that may sit toward Pontiac, Clarkston, or White Lake. We map the opening to the actual driveway, not to the township name alone.',
+    notes: [
+      'A strong search when the family is rooted around the lakes and Dixie Highway',
+      'Pontiac hospitals are the usual medical anchor',
+      'Clarkston and White Lake are the next towns when Waterford does not have the care level',
+    ],
+    hospitals: 'Trinity Health Oakland and McLaren Oakland in neighboring Pontiac',
+    setting: 'Dixie Highway, M-59, and a chain of lakes make Waterford a township search, not a single downtown.',
+  },
+  {
+    name: 'Clarkston',
+    slug: 'clarkston',
+    county: 'Oakland County',
+    countySlug: 'oakland-county',
+    nearby: ['waterford', 'lake-orion', 'oxford', 'pontiac'],
+    intro:
+      'Clarkston searches usually mean the village downtown and the Independence Township neighborhoods around Sashabaw, Dixie, and I-75. Families want to stay in northern Oakland County, where a move to a southern suburb can feel like leaving home.',
+    details:
+      'The village is small, so assisted living and memory care may sit in the township or a few minutes toward Waterford, Lake Orion, or Oxford. We treat “close to downtown Clarkston” as a real requirement and tell you when an opening is too far for the visits you described.',
+    notes: [
+      'Village and Independence Township are one search for most families, and we say which is which',
+      'Waterford and Lake Orion are the usual wider look',
+      'I-75 makes Auburn Hills possible, but only if the care there is actually better',
+    ],
+    hospitals: 'Trinity Health Oakland in Pontiac, with Corewell Health in Rochester a longer drive east',
+    setting: 'The village downtown, Sashabaw, and Dixie Highway sit in a township that is much larger than the village.',
+  },
+  {
+    name: 'Lake Orion',
+    slug: 'lake-orion',
+    county: 'Oakland County',
+    countySlug: 'oakland-county',
+    nearby: ['oxford', 'rochester-hills', 'auburn-hills', 'clarkston'],
+    intro:
+      'Lake Orion families usually want senior care within a short drive of the village and the lake, along M-24, rather than a campus in Troy. Orion Township is the wider area most listings actually sit in.',
+    details:
+      'The village itself is small. Rochester Hills adds more assisted living and memory care to the south, Oxford adds a smaller-town option to the north, and Auburn Hills sits on the way toward I-75. We compare those three against how often someone can get back to the lake for a visit.',
+    notes: [
+      'Downtown Lake Orion and the lake are the reason families start here',
+      'Rochester Hills is the usual place a larger memory care program shows up',
+      'We separate the village from Orion Township so the address is not a surprise',
+    ],
+    hospitals: 'Corewell Health (Crittenton) in Rochester and Trinity Health Oakland in Pontiac',
+    setting: 'M-24 and the village sit between Oxford and the Rochester Hills campuses.',
+  },
+  {
+    name: 'Oxford',
+    slug: 'oxford',
+    county: 'Oakland County',
+    countySlug: 'oakland-county',
+    nearby: ['lake-orion', 'clarkston', 'rochester-hills', 'holly'],
+    intro:
+      'Oxford is at the northeast edge of Oakland County. Families searching downtown Oxford usually want to stay in that village, on M-24, instead of moving a parent toward the busier Rochester or Troy markets.',
+    details:
+      'Inventory is thinner here than in Rochester Hills. Lake Orion is the closest wider look, and Rochester Hills is the place we check when a secured memory care program or a faster opening is the real need. We are direct about drive time back to Oxford before that farther community goes on the list.',
+    notes: [
+      'A fit when downtown Oxford and the surrounding township are home',
+      'Lake Orion is the first neighboring village we compare',
+      'A Rochester Hills campus is a tradeoff, not the default',
+    ],
+    hospitals: 'Corewell Health (Crittenton) in Rochester',
+    setting: 'Downtown Oxford and M-24 are the northeast corner of the county, with more open land than the southern suburbs.',
+  },
+  {
+    name: 'Holly',
+    slug: 'holly',
+    county: 'Oakland County',
+    countySlug: 'oakland-county',
+    nearby: ['clarkston', 'oxford', 'waterford', 'white-lake'],
+    intro:
+      'Holly is the northwest corner of Oakland County, a village with a historic downtown at Battle Alley, close to I-75 and the Genesee County line. Families here are often trying not to send a parent south into the Novi or Troy markets.',
+    details:
+      'Senior living inside Holly is limited. Clarkston is the Oakland County town we usually check next, and some families also look north toward Fenton when the care level is not available on the Oakland side. We will not pretend Holly has a row of campuses. If the right opening is a longer drive, we say how long.',
+    notes: [
+      'A village search, not a suburban campus search',
+      'Clarkston is the usual next Oakland County look',
+      'Fenton is across the county line and only belongs on the list if the care is actually there',
+    ],
+    hospitals: 'Trinity Health Oakland in Pontiac, with Genesee County hospitals north of the county line',
+    setting: 'Battle Alley, the village, and I-75 put Holly between northern Oakland County and Fenton.',
+  },
+  {
+    name: 'Milford',
+    slug: 'milford',
+    county: 'Oakland County',
+    countySlug: 'oakland-county',
+    nearby: ['commerce-township', 'white-lake', 'brighton', 'walled-lake'],
+    intro:
+      'Milford families usually want senior care close to the village downtown, the Huron River, and Main Street, not a move to a Novi campus. The village and Milford Township are both part of what people mean when they search the name.',
+    details:
+      'Options inside the village are limited. Commerce Township and White Lake are the Oakland County communities we compare next, and Brighton comes up when a family is willing to cross into Livingston County. Kensington and the river are why people want to stay; we treat visit distance as part of the decision.',
+    notes: [
+      'Downtown Milford is the anchor, even when the community is in the township',
+      'Commerce Township and White Lake usually complete a local short list',
+      'We flag a Brighton option as a different county before you tour it',
+    ],
+    hospitals: 'Huron Valley-Sinai in Commerce Township and Henry Ford West Bloomfield Hospital',
+    setting: 'Main Street, the Huron River, and the township around the village sit west of Commerce and the lakes.',
+  },
+  {
+    name: 'Orchard Lake',
+    slug: 'orchard-lake',
+    county: 'Oakland County',
+    countySlug: 'oakland-county',
+    nearby: ['west-bloomfield', 'keego-harbor', 'bloomfield-hills', 'farmington-hills'],
+    intro:
+      'Orchard Lake Village is a small city wrapped around the lake, inside the larger West Bloomfield area. Families searching here want a parent near the water and near relatives on Orchard Lake Road, not a generic Oakland County list.',
+    details:
+      'There is not a cluster of senior campuses inside the village limits. West Bloomfield holds most of the assisted living and memory care a family will actually tour, with Keego Harbor and sometimes Bloomfield Hills as other short drives. We use Orchard Lake as the home base and say plainly when a community is in West Bloomfield.',
+    notes: [
+      'The lake and the village are the search, even though the buildings are usually next door',
+      'West Bloomfield is where most comparable communities sit',
+      'Keego Harbor is the other small city families often want to stay near',
+    ],
+    hospitals: 'Henry Ford West Bloomfield Hospital',
+    setting: 'The lake and Orchard Lake Road sit inside West Bloomfield’s larger senior-living market.',
+  },
+  {
+    name: 'Franklin',
+    slug: 'franklin',
+    county: 'Oakland County',
+    countySlug: 'oakland-county',
+    nearby: ['farmington-hills', 'bloomfield-hills', 'southfield', 'beverly-hills'],
+    intro:
+      'Franklin Village is a small historic village on Franklin Road, between Farmington Hills and the Bloomfield communities. Families here often want privacy and a short drive back to the village green, and they already know the village itself will not hold a large campus.',
+    details:
+      'The practical tour list is Farmington Hills to the west and Bloomfield or Bingham Farms and Beverly Hills to the east. We start with care needs and how often someone can visit, then pick the side of Franklin that fits. A longer drive to Birmingham or Novi is only on the list if Franklin’s neighbors cannot meet the care level.',
+    notes: [
+      'The village is the home base; the communities are in the cities around it',
+      'Farmington Hills and Bloomfield are the two directions we compare first',
+      'We keep the list short so you are not touring the whole Woodward corridor',
+    ],
+    hospitals: 'Corewell Health Farmington Hills Hospital and Henry Ford West Bloomfield Hospital',
+    setting: 'Franklin Road and the village green sit between Farmington Hills and Bloomfield.',
+  },
+  {
+    name: 'Beverly Hills',
+    slug: 'beverly-hills',
+    county: 'Oakland County',
+    countySlug: 'oakland-county',
+    nearby: ['birmingham', 'royal-oak', 'southfield', 'bloomfield-hills'],
+    intro:
+      'Beverly Hills is the village along Southfield Road and 13 Mile, between Birmingham and Royal Oak. Families searching here want a parent close to that residential grid, and they are usually open to the next city over once the care level is clear.',
+    details:
+      'The village does not have a set of large senior campuses inside its limits. Birmingham, Bloomfield Hills, and Royal Oak are the three places a Beverly Hills search actually goes. We compare those on staffing, memory care, and monthly cost, using 13 Mile as the drive you are trying to keep short.',
+    notes: [
+      '13 Mile and Southfield Road are the visit pattern to protect',
+      'Birmingham and Royal Oak are the usual neighboring inventories',
+      'Southfield is the other direction when Providence or a western address fits better',
+    ],
+    hospitals: 'Beaumont (Corewell Health) Royal Oak and Corewell Health Troy Hospital',
+    setting: 'Southfield Road and 13 Mile put the village between Birmingham and Royal Oak.',
+  },
+  {
+    name: 'Huntington Woods',
+    slug: 'huntington-woods',
+    county: 'Oakland County',
+    countySlug: 'oakland-county',
+    nearby: ['berkley', 'oak-park', 'royal-oak', 'ferndale'],
+    intro:
+      'Huntington Woods is a small city on the Woodward corridor, between Oak Park, Berkley, and Royal Oak, near 11 Mile. Adult children who live here usually want a parent close enough for a short evening visit, not a move to a far suburban campus.',
+    details:
+      'Senior housing inside Huntington Woods is limited. Royal Oak and Berkley are the first places we look, with Oak Park and Ferndale as other short drives. Beaumont Royal Oak is the hospital most of these families already use, so medical follow-up stays part of the match.',
+    notes: [
+      'A Woodward-corridor search anchored at 11 Mile',
+      'Royal Oak and Berkley hold more of the assisted living and memory care',
+      'We look at a smaller licensed home when a large campus is the wrong fit',
+    ],
+    hospitals: 'Beaumont (Corewell Health) Royal Oak',
+    setting: '11 Mile and the Woodward edge keep Huntington Woods between Oak Park and Royal Oak.',
+  },
+  {
+    name: 'Pleasant Ridge',
+    slug: 'pleasant-ridge',
+    county: 'Oakland County',
+    countySlug: 'oakland-county',
+    nearby: ['ferndale', 'royal-oak', 'huntington-woods', 'oak-park'],
+    intro:
+      'Pleasant Ridge is one of the smallest cities in Oakland County, a few blocks along Woodward between Ferndale and Royal Oak. Families here are not going to find a senior campus inside the city, and the useful search is the one that admits that.',
+    details:
+      'We use Pleasant Ridge as the place family lives and visits from. Royal Oak is the first look for assisted living and memory care, Ferndale and Huntington Woods are the other short drives, and Berkley comes up when 12 Mile is an easy trip. The goal is a community you can reach without planning the afternoon around it.',
+    notes: [
+      'The city is the home base, not the place the building will be',
+      'Royal Oak is the usual first tour list',
+      'Ferndale is the other direction when a smaller setting or a closer Woodward address fits',
+    ],
+    hospitals: 'Beaumont (Corewell Health) Royal Oak',
+    setting: 'Woodward and Ridge Road put Pleasant Ridge in a gap between Ferndale and Royal Oak.',
+  },
+  {
+    name: 'Lathrup Village',
+    slug: 'lathrup-village',
+    county: 'Oakland County',
+    countySlug: 'oakland-county',
+    nearby: ['southfield', 'oak-park', 'beverly-hills', 'farmington-hills'],
+    intro:
+      'Lathrup Village is a small city tucked against Southfield near 11 Mile, Southfield Road, and I-696. Families searching here want a parent close to that pocket, between Southfield’s hospitals and the Woodward cities to the east.',
+    details:
+      'There is little senior-living inventory inside Lathrup Village. Southfield is the first place we look, especially when Ascension Providence is part of care, and Oak Park or Beverly Hills can be the better drive depending on which side of the village family lives on. We compare those cities on care, not on which name sounds closest.',
+    notes: [
+      '11 Mile and Southfield Road are the local anchors',
+      'Southfield holds more of the nearby communities and the hospital',
+      'Oak Park is the other short list when family is already on that side',
+    ],
+    hospitals: 'Ascension Providence Hospital in Southfield and Beaumont (Corewell Health) Royal Oak',
+    setting: 'I-696, Southfield Road, and 11 Mile put Lathrup Village between Southfield and Oak Park.',
+  },
+  {
+    name: 'Keego Harbor',
+    slug: 'keego-harbor',
+    county: 'Oakland County',
+    countySlug: 'oakland-county',
+    nearby: ['orchard-lake', 'west-bloomfield', 'commerce-township', 'walled-lake'],
+    intro:
+      'Keego Harbor is a small city on Cass Lake, between Orchard Lake, West Bloomfield, and Sylvan Lake. Families here want the lake towns to stay the center of visits, which is a different search from a Novi or Troy campus.',
+    details:
+      'The city is too small to hold many senior communities. West Bloomfield is where most assisted living and memory care tours end up, Commerce Township is the western option, and Orchard Lake is often the other place family is driving from. We keep Cass Lake as the reference point and drop any community that makes a casual visit unlikely.',
+    notes: [
+      'Cass Lake is the reason for the search',
+      'West Bloomfield supplies most of the comparable communities',
+      'Commerce Township is the next look when a western Oakland setting fits better',
+    ],
+    hospitals: 'Henry Ford West Bloomfield Hospital and Huron Valley-Sinai in Commerce Township',
+    setting: 'Cass Lake Road and a very small city limit sit inside the larger West Bloomfield and Commerce markets.',
+  },
 ];
 
 export function getCityBySlug(slug: string): City | undefined {
@@ -596,6 +902,10 @@ export function getCityBySlug(slug: string): City | undefined {
 
 export function cityPath(slug: string): string {
   return `/areas/${slug}`;
+}
+
+export function startPath(slug?: string): string {
+  return slug ? `/start?city=${encodeURIComponent(slug)}` : '/start';
 }
 
 export function cityTitle(city: City): string {

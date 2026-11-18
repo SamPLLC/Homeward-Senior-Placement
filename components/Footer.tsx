@@ -72,7 +72,9 @@ export default function Footer() {
             <a href="/guides" className="hover:text-gray-300">Guides</a>
             <a href="/hospitals" className="hover:text-gray-300">Hospital discharge</a>
             <a href="/about" className="hover:text-gray-300">About</a>
+            <a href="/start" className="hover:text-gray-300">Get help</a>
             <a href="/contact" className="hover:text-gray-300">Contact</a>
+            <a href="/inbox" className="hover:text-gray-300">Lead inbox</a>
           </nav>
           <nav className="mt-6 flex flex-wrap gap-x-4 gap-y-2" aria-label="Services">
             {services.map((service) => (

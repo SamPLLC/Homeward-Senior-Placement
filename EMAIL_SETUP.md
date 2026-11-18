@@ -1,8 +1,10 @@
 # Email Setup Instructions
 
-The contact form sends submissions to `homewardseniors@gmail.com`.
+Every assessment and contact-form lead is emailed to `homewardseniors@gmail.com` through FormSubmit. That send does not depend on `data/leads.json`. The family only sees a success message after FormSubmit accepts the message.
 
-By default it uses **FormSubmit** (no extra setup on Vercel). The first time someone submits the form, FormSubmit will email you a one-time activation link — click it to start receiving messages.
+The first time FormSubmit hears from this address, it emails a one-time activation link to that Gmail account. Until that link is clicked, FormSubmit does not deliver the lead, and the site tells the family to call instead.
+
+`data/leads.json` is only a local copy when the server can write it. On Vercel, `/inbox` explains that leads are emailed and are not stored on the server.
 
 For a more professional setup later, you can switch to **Resend**:
 

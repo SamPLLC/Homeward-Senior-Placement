@@ -8,14 +8,14 @@ import { hospitals, hospitalPath } from '@/lib/hospitals';
 import { SITE_URL } from '@/lib/business';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ['', '/services', '/how-it-works', '/areas', '/about', '/contact', '/privacy', '/guides', '/hospitals'];
+  const staticRoutes = ['', '/start', '/services', '/how-it-works', '/areas', '/about', '/contact', '/privacy', '/guides', '/hospitals'];
 
   return [
     ...staticRoutes.map((path) => ({
       url: `${SITE_URL}${path}`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
-      priority: path === '' ? 1 : 0.7,
+      priority: path === '' ? 1 : path === '/start' ? 0.9 : 0.7,
     })),
     ...guides.map((guide) => ({
       url: `${SITE_URL}${guidePath(guide.slug)}`,

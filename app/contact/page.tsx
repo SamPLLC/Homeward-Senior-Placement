@@ -1,11 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-
-const CONTACT_EMAIL = 'homewardseniors@gmail.com';
+import { DELIVERY_FAILURE_MESSAGE } from '@/lib/business';
+import { submitFamilyLead } from '@/lib/submit-family-lead';
 
 export default function Contact() {
   const [status, setStatus] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -19,77 +20,43 @@ export default function Contact() {
     const email = String(formData.get('email') || '').trim();
     const phone = String(formData.get('phone') || '').trim();
     const message = String(formData.get('message') || '').trim();
+    const company = String(formData.get('company') || '').trim();
 
     if (!name || !phone || !message) {
+      setErrorMessage('Name, phone, and a message are required.');
       setStatus('ERROR');
       setIsLoading(false);
       return;
     }
 
     try {
-      const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          email: email || 'not-provided@homewardseniors.com',
-          phone,
-          message,
-          _subject: `New Homeward contact from ${name}`,
-          _template: 'table',
-          _captcha: 'false',
-        }),
+      const result = await submitFamilyLead({
+        name,
+        email,
+        phone,
+        notes: message,
+        city: 'Not specified',
+        careNeed: 'General question',
+        timeline: 'Not specified',
+        budget: 'Not specified',
+        source: 'contact',
+        company,
       });
-
-      const data = await response.json();
-
-      if (data.success === 'true' || data.success === true) {
+      if (result.ok) {
         setStatus('SUCCESS');
         form.reset();
-      } else if (String(data.message || '').toLowerCase().includes('activation')) {
-        setStatus('ACTIVATION');
-        form.reset();
       } else {
-        throw new Error(data.message || 'Failed to send message');
+        setErrorMessage(result.error || DELIVERY_FAILURE_MESSAGE);
+        setStatus('ERROR');
       }
     } catch (error) {
+      setErrorMessage(DELIVERY_FAILURE_MESSAGE);
       setStatus('ERROR');
       console.error('Form submission error:', error);
     } finally {
       setIsLoading(false);
     }
   };
-
-  if (status === 'ACTIVATION') {
-    return (
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center">
-          <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg className="w-8 h-8 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-          </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Check Your Email</h1>
-          <p className="text-xl text-gray-600 mb-4">
-            We sent a one-time activation link to <strong>{CONTACT_EMAIL}</strong>.
-          </p>
-          <p className="text-lg text-gray-600 mb-8">
-            Open that email from FormSubmit, click <strong>Activate Form</strong>, then come back and send another test message.
-            Also check your spam folder.
-          </p>
-          <button
-            onClick={() => setStatus('')}
-            className="bg-blue-900 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-800 transition-colors duration-200"
-          >
-            Back to Contact Form
-          </button>
-        </div>
-      </div>
-    );
-  }
 
   if (status === 'SUCCESS') {
     return (
@@ -125,8 +92,12 @@ export default function Contact() {
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Contact Us</h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Ready to find the perfect senior living arrangement? We&apos;re a Farmington Hills,
-          Michigan advisor serving families across Southeast Michigan. Get in touch today for a free consultation.
+          Ready to find senior living for a parent? We are a Farmington Hills advisor serving Oakland County and the
+          rest of Southeast Michigan. Send a note here, or use the{' '}
+          <a href="/start" className="text-blue-900 underline underline-offset-4">
+            short assessment
+          </a>{' '}
+          if you would rather answer a few questions.
         </p>
       </div>
 
@@ -136,10 +107,10 @@ export default function Contact() {
           <h2 className="text-2xl font-semibold text-gray-900 mb-6">Send Us a Message</h2>
           {status === 'ERROR' && (
             <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-              <p className="text-red-800 text-sm">Oops! Something went wrong. Please try again.</p>
+              <p className="text-red-800 text-sm">{errorMessage}</p>
             </div>
           )}
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="relative space-y-6">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                 Full Name *
@@ -195,6 +166,11 @@ export default function Contact() {
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="Tell us about your needs, timeline, and any questions you have..."
               />
+            </div>
+
+            <div className="absolute -left-[9999px]" aria-hidden="true">
+              <label htmlFor="company">Company</label>
+              <input id="company" name="company" tabIndex={-1} autoComplete="off" />
             </div>
 
             <button
