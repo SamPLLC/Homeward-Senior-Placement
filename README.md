@@ -26,13 +26,13 @@ Open [http://127.0.0.1:3005](http://127.0.0.1:3005).
 - City pages: [http://127.0.0.1:3005/areas](http://127.0.0.1:3005/areas)
 - Lead inbox: [http://127.0.0.1:3005/inbox](http://127.0.0.1:3005/inbox)
 
-## Where leads are stored
+## Where leads go
 
-Submissions are written to `data/leads.json`. That file is gitignored because it contains family names, phone numbers, and emails. It stays on disk across `npm run dev` and `npm run start` restarts.
+Every assessment and contact submission is emailed to `homewardseniors@gmail.com` through FormSubmit. The family sees a success message only after FormSubmit accepts it. If that send fails, the page asks them to call (248) 996-4637.
 
-This project does not include a database. On a host with a persistent disk, the JSON file is the inbox. On Vercel’s serverless filesystem, files do not survive new deployments or new instances. For a public launch, run the app somewhere with a persistent disk, or copy `data/leads.json` off the server on a schedule.
+`data/leads.json` is a local copy for machines that can write it. It is gitignored. The live site runs on Vercel, which does not keep that file. On a host that cannot store it, `/inbox` says leads are delivered by email and does not show an empty list.
 
-Optional email copies of each lead use `RESEND_API_KEY`. See `EMAIL_SETUP.md`. The inbox does not depend on email.
+Optional Resend copies, when `RESEND_API_KEY` is set, are sent only after the local file save. See `EMAIL_SETUP.md`. The FormSubmit email does not depend on that key or on the file.
 
 ## Owner placeholders
 

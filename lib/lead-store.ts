@@ -1,5 +1,5 @@
 import { randomUUID } from 'crypto';
-import { mkdir, readFile, rename, writeFile } from 'fs/promises';
+import { mkdir, readFile, rename, unlink, writeFile } from 'fs/promises';
 import path from 'path';
 import type { LeadInput, StoredLead } from '@/lib/assessment';
 
@@ -30,6 +30,26 @@ async function readLeads(): Promise<Lead[]> {
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === 'ENOENT') return [];
     throw error;
+  }
+}
+
+function hostCannotKeepFiles(): boolean {
+  return Boolean(
+    process.env.VERCEL || process.env.NETLIFY || process.env.AWS_LAMBDA_FUNCTION_NAME || process.env.LAMBDA_TASK_ROOT,
+  );
+}
+
+/** True only when this process can write the leads file. Serverless hosts are treated as unable to keep it. */
+export async function leadStoreAvailable(): Promise<boolean> {
+  if (hostCannotKeepFiles()) return false;
+  const probe = path.join(dataDir, `.write-probe.${process.pid}`);
+  try {
+    await mkdir(dataDir, { recursive: true });
+    await writeFile(probe, 'ok');
+    await unlink(probe);
+    return true;
+  } catch {
+    return false;
   }
 }
 

@@ -14,6 +14,7 @@ export const BUSINESS_OWNER = 'Sam Pitu';
 export const BUSINESS_LICENSE = '';
 export const BUSINESS_PHONE_DISPLAY = '(248) 996-4637';
 export const BUSINESS_PHONE_TEL = '2489964637';
+export const DELIVERY_FAILURE_MESSAGE = `We could not send your message. Call ${BUSINESS_PHONE_DISPLAY} and we will take it by phone.`;
 export const BUSINESS_PHONE_E164 = '+1-248-996-4637';
 export const BUSINESS_EMAIL = 'homewardseniors@gmail.com';
 export const BUSINESS_HOURS_DISPLAY = 'Monday–Sunday, 8am–7pm';

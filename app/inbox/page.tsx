@@ -19,6 +19,8 @@ export default function LeadInbox() {
   const [error, setError] = useState('');
   const [locked, setLocked] = useState(true);
   const [unconfigured, setUnconfigured] = useState(false);
+  const [emailOnly, setEmailOnly] = useState(false);
+  const [deliveryEmail, setDeliveryEmail] = useState('');
   const [loading, setLoading] = useState(true);
 
   const load = useCallback(async () => {
@@ -39,12 +41,28 @@ export default function LeadInbox() {
       setLoading(false);
       return;
     }
-    const data = (await response.json().catch(() => ({}))) as { leads?: StoredLead[]; error?: string };
+    const data = (await response.json().catch(() => ({}))) as {
+      storage?: string;
+      email?: string;
+      leads?: StoredLead[];
+      error?: string;
+    };
+    if (response.ok && data.storage === 'email-only') {
+      setEmailOnly(true);
+      setDeliveryEmail(data.email || '');
+      setLeads(null);
+      setLocked(false);
+      setUnconfigured(false);
+      setLoading(false);
+      return;
+    }
     if (!response.ok) {
+      setEmailOnly(false);
       setError(data.error || 'Could not load leads.');
       setLoading(false);
       return;
     }
+    setEmailOnly(false);
     setLeads(data.leads ?? []);
     setLocked(false);
     setUnconfigured(false);
@@ -91,7 +109,17 @@ export default function LeadInbox() {
 
       {loading && <p className="mt-8 text-gray-600">Loading…</p>}
 
-      {!loading && locked && (
+      {!loading && emailOnly && (
+        <div className="mt-8 rounded-2xl border border-blue-200 bg-blue-50 p-6">
+          <h2 className="text-2xl font-semibold text-gray-900">Leads are not stored on this server</h2>
+          <p className="mt-3 text-lg text-gray-800">
+            Assessments and contact messages are emailed to {deliveryEmail || 'the Homeward Gmail address'}. They are
+            not stored here, so this page does not list them. Check that inbox for new families.
+          </p>
+        </div>
+      )}
+
+      {!loading && !emailOnly && locked && (
         <form onSubmit={onLogin} className="mt-8 max-w-md rounded-2xl border border-gray-200 bg-white p-6">
           <h2 className="text-xl font-semibold text-gray-900">Sign in</h2>
           {unconfigured ? (
@@ -129,7 +157,7 @@ export default function LeadInbox() {
         </form>
       )}
 
-      {!loading && !locked && (
+      {!loading && !emailOnly && !locked && (
         <div className="mt-8">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <p className="text-base text-gray-700">{leads?.length ?? 0} saved</p>

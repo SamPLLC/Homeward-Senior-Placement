@@ -1,10 +1,10 @@
 # Email Setup Instructions
 
-Family assessments and the contact form are saved in the lead inbox at `/inbox` (`data/leads.json` on the server). Email is an optional extra notification. The inbox still works if email is not configured.
+Every assessment and contact-form lead is emailed to `homewardseniors@gmail.com` through FormSubmit. That send does not depend on `data/leads.json`. The family only sees a success message after FormSubmit accepts the message.
 
-The optional email notification goes to `homewardseniors@gmail.com`.
+The first time FormSubmit hears from this address, it emails a one-time activation link to that Gmail account. Until that link is clicked, FormSubmit does not deliver the lead, and the site tells the family to call instead.
 
-By default it uses **FormSubmit** (no extra setup on Vercel). The first time someone submits the form, FormSubmit will email you a one-time activation link — click it to start receiving messages.
+`data/leads.json` is only a local copy when the server can write it. On Vercel, `/inbox` explains that leads are emailed and are not stored on the server.
 
 For a more professional setup later, you can switch to **Resend**:
 

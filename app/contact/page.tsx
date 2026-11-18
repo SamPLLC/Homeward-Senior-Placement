@@ -1,9 +1,12 @@
 'use client';
 
 import { useState } from 'react';
+import { DELIVERY_FAILURE_MESSAGE } from '@/lib/business';
+import { submitFamilyLead } from '@/lib/submit-family-lead';
 
 export default function Contact() {
   const [status, setStatus] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -17,42 +20,37 @@ export default function Contact() {
     const email = String(formData.get('email') || '').trim();
     const phone = String(formData.get('phone') || '').trim();
     const message = String(formData.get('message') || '').trim();
+    const company = String(formData.get('company') || '').trim();
 
     if (!name || !phone || !message) {
+      setErrorMessage('Name, phone, and a message are required.');
       setStatus('ERROR');
       setIsLoading(false);
       return;
     }
 
     try {
-      const response = await fetch('/api/leads', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          phone,
-          notes: message,
-          city: 'Not specified',
-          careNeed: 'General question',
-          timeline: 'Not specified',
-          budget: 'Not specified',
-          source: 'contact',
-        }),
+      const result = await submitFamilyLead({
+        name,
+        email,
+        phone,
+        notes: message,
+        city: 'Not specified',
+        careNeed: 'General question',
+        timeline: 'Not specified',
+        budget: 'Not specified',
+        source: 'contact',
+        company,
       });
-
-      const data = await response.json().catch(() => ({}));
-
-      if (response.ok && data.success) {
+      if (result.ok) {
         setStatus('SUCCESS');
         form.reset();
       } else {
-        throw new Error(data.error || 'Failed to send message');
+        setErrorMessage(result.error || DELIVERY_FAILURE_MESSAGE);
+        setStatus('ERROR');
       }
     } catch (error) {
+      setErrorMessage(DELIVERY_FAILURE_MESSAGE);
       setStatus('ERROR');
       console.error('Form submission error:', error);
     } finally {
@@ -109,10 +107,10 @@ export default function Contact() {
           <h2 className="text-2xl font-semibold text-gray-900 mb-6">Send Us a Message</h2>
           {status === 'ERROR' && (
             <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-              <p className="text-red-800 text-sm">Oops! Something went wrong. Please try again.</p>
+              <p className="text-red-800 text-sm">{errorMessage}</p>
             </div>
           )}
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="relative space-y-6">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                 Full Name *
@@ -168,6 +166,11 @@ export default function Contact() {
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="Tell us about your needs, timeline, and any questions you have..."
               />
+            </div>
+
+            <div className="absolute -left-[9999px]" aria-hidden="true">
+              <label htmlFor="company">Company</label>
+              <input id="company" name="company" tabIndex={-1} autoComplete="off" />
             </div>
 
             <button

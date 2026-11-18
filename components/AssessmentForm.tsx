@@ -9,7 +9,8 @@ import {
   assessmentCityOptions,
   cityNameForSlug,
 } from '@/lib/assessment';
-import { BUSINESS_HOURS_DISPLAY, BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_TEL } from '@/lib/business';
+import { BUSINESS_HOURS_DISPLAY, BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_TEL, DELIVERY_FAILURE_MESSAGE } from '@/lib/business';
+import { submitFamilyLead } from '@/lib/submit-family-lead';
 
 type Choice = { value: string; hint: string };
 
@@ -119,29 +120,25 @@ export default function AssessmentForm({ initialCitySlug = '' }: { initialCitySl
     setSubmitting(true);
     setError('');
     try {
-      const response = await fetch('/api/leads', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          name,
-          phone,
-          email,
-          city,
-          careNeed,
-          timeline,
-          budget,
-          notes,
-          source: 'assessment',
-          company,
-        }),
+      const result = await submitFamilyLead({
+        name,
+        phone,
+        email,
+        city,
+        careNeed,
+        timeline,
+        budget,
+        notes,
+        source: 'assessment',
+        company,
       });
-      const data = (await response.json().catch(() => ({}))) as { error?: string };
-      if (!response.ok) {
-        throw new Error(data.error || 'We could not save your request.');
+      if (!result.ok) {
+        setError(result.error);
+        return;
       }
       setDonePhone(phone.trim());
-    } catch (submitError) {
-      setError(submitError instanceof Error ? submitError.message : 'We could not save your request.');
+    } catch {
+      setError(DELIVERY_FAILURE_MESSAGE);
     } finally {
       setSubmitting(false);
     }

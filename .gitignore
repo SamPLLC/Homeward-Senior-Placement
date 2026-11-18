@@ -36,6 +36,7 @@ yarn-error.log*
 # family lead inbox — contains names, phones, and emails
 /data/leads.json
 /data/leads.*.tmp
+/data/.write-probe.*
 
 # vercel
 .vercel

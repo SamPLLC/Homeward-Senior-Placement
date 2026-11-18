@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { parseLeadBody, type StoredLead } from '@/lib/assessment';
-import { BUSINESS_EMAIL, BUSINESS_NAME } from '@/lib/business';
+import { BUSINESS_EMAIL, BUSINESS_NAME, BUSINESS_PHONE_DISPLAY, DELIVERY_FAILURE_MESSAGE } from '@/lib/business';
+import { sendLeadViaFormSubmit } from '@/lib/deliver-lead';
 import { isInboxAuthed } from '@/lib/inbox-auth';
-import { createLead, listLeads } from '@/lib/lead-store';
+import { createLead, leadStoreAvailable, listLeads } from '@/lib/lead-store';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -73,20 +74,31 @@ async function notify(lead: StoredLead) {
 }
 
 export async function GET(request: NextRequest) {
+  const persistent = await leadStoreAvailable();
+  if (!persistent) {
+    return NextResponse.json(
+      {
+        storage: 'email-only',
+        email: BUSINESS_EMAIL,
+      },
+      { headers: { 'Cache-Control': 'no-store' } },
+    );
+  }
+
   if (!process.env.LEAD_INBOX_PASSWORD?.trim()) {
     return NextResponse.json(
-      { error: 'Set LEAD_INBOX_PASSWORD before opening the inbox.' },
+      { storage: 'file', error: 'Set LEAD_INBOX_PASSWORD before opening the inbox.' },
       { status: 503 },
     );
   }
 
   if (!isInboxAuthed(request)) {
-    return NextResponse.json({ error: 'Sign in to view leads.' }, { status: 401 });
+    return NextResponse.json({ storage: 'file', error: 'Sign in to view leads.' }, { status: 401 });
   }
 
   const leads = await listLeads();
   return NextResponse.json(
-    { leads },
+    { storage: 'file', leads },
     { headers: { 'Cache-Control': 'no-store' } },
   );
 }
@@ -94,7 +106,9 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   if (rateLimited(clientIp(request))) {
     return NextResponse.json(
-      { error: 'Too many submissions from this network. Call us if you need help right now.' },
+      {
+        error: `Too many submissions from this network. Call ${BUSINESS_PHONE_DISPLAY} if you need help right now.`,
+      },
       { status: 429 },
     );
   }
@@ -114,19 +128,44 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: parsed.error }, { status: 400 });
   }
 
-  try {
-    const lead = await createLead(parsed.value);
+  const storeOnly = Boolean((body as { storeOnly?: unknown }).storeOnly);
+  if (storeOnly) {
+    let stored = false;
     try {
-      await notify(lead);
+      if (await leadStoreAvailable()) {
+        const lead = await createLead(parsed.value);
+        stored = true;
+        try {
+          await notify(lead);
+        } catch (error) {
+          console.error('Optional Resend notification failed:', error);
+        }
+      }
     } catch (error) {
-      console.error('Lead saved, email notification failed:', error);
+      console.error('Local lead file was not saved:', error);
     }
-    return NextResponse.json({ success: true, id: lead.id }, { status: 201 });
-  } catch (error) {
-    console.error('Lead store error:', error);
-    return NextResponse.json(
-      { error: 'We could not save your request. Please call us and we will take it down by phone.' },
-      { status: 500 },
-    );
+    return NextResponse.json({ success: true, stored }, { status: 200 });
   }
+
+  const pageUrl = String((body as { pageUrl?: unknown }).pageUrl || '') || undefined;
+  const delivered = await sendLeadViaFormSubmit(parsed.value, pageUrl);
+  if (!delivered.ok) {
+    console.error('FormSubmit did not accept the lead:', delivered.detail);
+    return NextResponse.json({ error: DELIVERY_FAILURE_MESSAGE }, { status: 502 });
+  }
+
+  try {
+    if (await leadStoreAvailable()) {
+      const lead = await createLead(parsed.value);
+      try {
+        await notify(lead);
+      } catch (error) {
+        console.error('Optional Resend notification failed:', error);
+      }
+    }
+  } catch (error) {
+    console.error('Lead email was accepted. The local file was not saved:', error);
+  }
+
+  return NextResponse.json({ success: true }, { status: 201 });
 }
