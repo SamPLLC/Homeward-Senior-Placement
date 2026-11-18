@@ -120,7 +120,7 @@ export default function HowItWorks() {
             so there's no cost to you.
           </p>
           <a
-            href="/contact"
+            href="/start"
             className="bg-blue-900 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-800 transition-colors duration-200"
           >
             Start Your Journey Today

@@ -155,7 +155,7 @@ export default async function ServicePage({ params }: PageProps) {
             Call (248) 996-4637
           </a>
           <Link
-            href="/contact"
+            href="/start"
             className="inline-flex items-center justify-center rounded-lg bg-blue-900 px-6 py-3 text-white font-medium hover:bg-blue-800"
           >
             Schedule Your Free Consultation Today

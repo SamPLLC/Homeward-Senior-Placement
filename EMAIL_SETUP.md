@@ -1,6 +1,8 @@
 # Email Setup Instructions
 
-The contact form sends submissions to `homewardseniors@gmail.com`.
+Family assessments and the contact form are saved in the lead inbox at `/inbox` (`data/leads.json` on the server). Email is an optional extra notification. The inbox still works if email is not configured.
+
+The optional email notification goes to `homewardseniors@gmail.com`.
 
 By default it uses **FormSubmit** (no extra setup on Vercel). The first time someone submits the form, FormSubmit will email you a one-time activation link — click it to start receiving messages.
 

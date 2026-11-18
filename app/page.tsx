@@ -75,7 +75,7 @@ const faqs = [
   {
     question: 'Which cities in Michigan do you serve?',
     answer:
-      'We help families across Southeast Michigan, including Farmington Hills, Northville, Plymouth, Livonia, West Bloomfield, Bloomfield Hills, Bloomfield Township, Novi, Ann Arbor, Troy, Sterling Heights, Rochester Hills, Canton, and Royal Oak.',
+      'We help families across Southeast Michigan, with the deepest coverage in Oakland County — Farmington Hills, Novi, Southfield, Royal Oak, Birmingham, Troy, Rochester Hills, Pontiac, Waterford, and the smaller cities around them — plus Wayne, Macomb, Washtenaw, and Livingston counties.',
   },
   {
     question: 'Do you work for one community, or compare several?',
@@ -121,10 +121,10 @@ export default function Home() {
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-3">
                 <Link
-                  href="/contact"
+                  href="/start"
                   className="inline-flex items-center justify-center rounded-lg bg-blue-900 px-6 py-3 text-white font-medium hover:bg-blue-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                 >
-                  Get Help
+                  Start a short assessment
                 </Link>
                 <Link
                   href="/services"
@@ -369,10 +369,10 @@ export default function Home() {
                 Call {BUSINESS_PHONE_DISPLAY}
               </a>
               <Link
-                href="/contact"
+                href="/start"
                 className="inline-flex items-center justify-center rounded-lg bg-blue-900 px-6 py-3 text-white font-medium hover:bg-blue-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               >
-                Schedule a free consultation
+                Start a short assessment
               </Link>
             </div>
           </div>

@@ -6,6 +6,12 @@ export const SITE_URL = 'https://homewardseniors.com';
 export const BUSINESS_ID = `${SITE_URL}/#business`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
 export const BUSINESS_NAME = 'Homeward Senior Placement';
+export const BUSINESS_OWNER = 'Sam Pitu';
+/**
+ * PLACEHOLDER: leave blank until a real Michigan license or credential is ready to publish.
+ * The site hides this while it is empty. Do not invent a number.
+ */
+export const BUSINESS_LICENSE = '';
 export const BUSINESS_PHONE_DISPLAY = '(248) 996-4637';
 export const BUSINESS_PHONE_TEL = '2489964637';
 export const BUSINESS_PHONE_E164 = '+1-248-996-4637';

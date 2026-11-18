@@ -104,7 +104,7 @@ export default function About() {
           Let us help you find the perfect senior living arrangement for your loved one.
         </p>
         <a
-          href="/contact"
+          href="/start"
           className="bg-blue-900 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-800 transition-colors duration-200"
         >
           Get Started Today

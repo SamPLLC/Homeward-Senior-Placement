@@ -5,6 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
+      disallow: ['/inbox', '/api/'],
     },
     sitemap: 'https://homewardseniors.com/sitemap.xml',
     host: 'https://homewardseniors.com',

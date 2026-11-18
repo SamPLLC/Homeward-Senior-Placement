@@ -51,7 +51,7 @@ export default function Services() {
         </p>
         <div className="mt-8">
           <Link
-            href="/contact"
+            href="/start"
             className="inline-flex items-center justify-center rounded-lg bg-blue-900 px-6 py-3 text-white font-medium hover:bg-blue-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
           >
             Schedule Your Free Consultation Today

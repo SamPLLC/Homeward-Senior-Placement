@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 
-const CONTACT_EMAIL = 'homewardseniors@gmail.com';
-
 export default function Contact() {
   const [status, setStatus] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -27,7 +25,7 @@ export default function Contact() {
     }
 
     try {
-      const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
+      const response = await fetch('/api/leads', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -35,25 +33,24 @@ export default function Contact() {
         },
         body: JSON.stringify({
           name,
-          email: email || 'not-provided@homewardseniors.com',
+          email,
           phone,
-          message,
-          _subject: `New Homeward contact from ${name}`,
-          _template: 'table',
-          _captcha: 'false',
+          notes: message,
+          city: 'Not specified',
+          careNeed: 'General question',
+          timeline: 'Not specified',
+          budget: 'Not specified',
+          source: 'contact',
         }),
       });
 
-      const data = await response.json();
+      const data = await response.json().catch(() => ({}));
 
-      if (data.success === 'true' || data.success === true) {
+      if (response.ok && data.success) {
         setStatus('SUCCESS');
         form.reset();
-      } else if (String(data.message || '').toLowerCase().includes('activation')) {
-        setStatus('ACTIVATION');
-        form.reset();
       } else {
-        throw new Error(data.message || 'Failed to send message');
+        throw new Error(data.error || 'Failed to send message');
       }
     } catch (error) {
       setStatus('ERROR');
@@ -62,34 +59,6 @@ export default function Contact() {
       setIsLoading(false);
     }
   };
-
-  if (status === 'ACTIVATION') {
-    return (
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center">
-          <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg className="w-8 h-8 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-          </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Check Your Email</h1>
-          <p className="text-xl text-gray-600 mb-4">
-            We sent a one-time activation link to <strong>{CONTACT_EMAIL}</strong>.
-          </p>
-          <p className="text-lg text-gray-600 mb-8">
-            Open that email from FormSubmit, click <strong>Activate Form</strong>, then come back and send another test message.
-            Also check your spam folder.
-          </p>
-          <button
-            onClick={() => setStatus('')}
-            className="bg-blue-900 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-800 transition-colors duration-200"
-          >
-            Back to Contact Form
-          </button>
-        </div>
-      </div>
-    );
-  }
 
   if (status === 'SUCCESS') {
     return (
@@ -125,8 +94,12 @@ export default function Contact() {
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Contact Us</h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Ready to find the perfect senior living arrangement? We&apos;re a Farmington Hills,
-          Michigan advisor serving families across Southeast Michigan. Get in touch today for a free consultation.
+          Ready to find senior living for a parent? We are a Farmington Hills advisor serving Oakland County and the
+          rest of Southeast Michigan. Send a note here, or use the{' '}
+          <a href="/start" className="text-blue-900 underline underline-offset-4">
+            short assessment
+          </a>{' '}
+          if you would rather answer a few questions.
         </p>
       </div>
 
